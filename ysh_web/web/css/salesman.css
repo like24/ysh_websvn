@@ -1,0 +1,90 @@
+.wrapper {
+	width: 100%;
+	height: 94%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+html,
+body {
+	background: #f4f4f4;
+	width: 100%;
+	height: 100%;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+.man {
+	width: 92%;
+	word-wrap: break-word;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.man li {
+	/*display: -webkit-flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;*/
+}
+
+.man img {
+	/*
+	display: block;*/
+	width: 1.45rem;
+	height: 1.45rem;
+	background: red;
+	border-radius: 50%;
+	margin-top: .3rem;
+}
+
+header {
+	width: 100%;
+	height: 2.2rem;
+	line-height: 2.2rem;
+	text-align: center;
+	font-size: 15px;
+	color: #3f3f3f;
+	background: white;
+}
+
+.moneyBox {
+	width: 100%;
+	height: 6.05rem;
+	background: #118fff;
+	position: relative;
+}
+
+.moneyBox p {
+	font-size: 13px;
+	color: white;
+	padding: .875rem;
+}
+
+.moneyBox span {
+	font-size: 30px;
+	color: white;
+	width: 100%;
+	text-align: center;
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 100px;
+	text-align: center;
+	margin-left: -50px;
+	height: 50px;
+	line-height: 50px;
+	margin-top: -25px;
+}
+
+.manlen {
+	width: 100%;
+	margin: .6rem 0 .3rem 0;
+	padding-left: .825rem;
+	color: #3f3f3f;
+	font-size: 13px;
+}

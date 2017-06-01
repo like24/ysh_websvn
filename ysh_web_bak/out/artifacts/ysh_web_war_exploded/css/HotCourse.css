@@ -1,0 +1,155 @@
+.swiper-container {
+	width: 100%;
+	height: auto;
+	margin-bottom: .5rem;
+}
+
+.swiper-container img {
+	width: 100%;
+}
+
+.search {
+	position: absolute;
+	right: .85rem;
+	top: 1.3rem;
+}
+
+.search img {
+	width: .925rem;
+	height: .925rem;
+}
+
+img {
+	width: 100%;
+}
+
+#btnMore {
+	width: 6.2rem;
+	height: 2rem;
+	text-align: center;
+	line-height: 2rem;
+	color: #1e91fc;
+	font-size: 14px;
+	background: white;
+	border-radius: 5px;
+	border: 1px solid #1e91fc;
+	margin: .875rem 0;
+	display: block;
+	margin-bottom: 4rem;
+	position: relative;
+	top: 1.2rem;
+	left: 50%;
+	margin-left: -3.1rem;
+}
+
+.activeNav {
+	display: -webkit-box;
+	width: 100%;
+	overflow-x: auto;
+	padding: .675rem 0;
+	background: white;
+}
+
+.activeNav dl {
+	width: 25%;
+}
+
+.activeNav dl dt {
+	margin: 0 auto;
+	width: 2.425rem;
+	height: 2.425rem;
+}
+
+.activeNav dl dd {
+	font-size: 12px;
+	color: #3f3f3f;
+	text-align: center;
+	width: 100%;
+	margin-top: .325rem;
+}
+
+.activeNav dl dt img {
+	border-radius: 50%;
+	width: 100%;
+	height: 100%;
+}
+
+.Content {
+	width: 100%;
+	background: white;
+	margin-top: .5rem;
+	height: auto;
+	position: relative;
+	padding-bottom: 2.3rem;
+}
+
+.free {
+	color: #1d92fb;
+}
+
+.btnMore {
+	width: 100%;
+	height: 4.6rem;
+	background: #f4f4f4;
+}
+
+.Content>h4 {
+	height: 1.9rem;
+	line-height: 1.9rem;
+	font-size: 15px;
+	color: #3f3f3f;
+	padding-left: .625rem;
+	padding-right: .625rem;
+	overflow: hidden;
+}
+
+.Content h4 a {
+	float: right;
+	text-decoration: underline;
+	color: #1d92fb;
+	font-size: 13px;
+}
+
+.Content dl {
+	border-top: 1px solid #e8e8e8;
+	padding: .625rem;
+}
+
+.Content dl dd b {
+	display: inline-block;
+	border-radius: 3px;
+	background: #1e91fc;
+	text-align: center;
+	color: white;
+	font-size: 13px;
+	padding:2px 4px 1px 4px;
+	line-height: 13px;
+	font-weight: normal;
+}
+
+.Content dl dt {
+	margin-bottom: .325rem;
+}
+
+.Content dl dd h4 {
+	font-size: 15px;
+	color: #3f3f3f;
+	width: 100%;
+	line-height: 1.3rem;
+	margin-top: -1rem;
+	position: relative;
+}
+
+.Content dl i {
+	word-break: break-all;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	font-style: normal;
+}
+.Content dl dd span {
+	color: red;
+	margin-left: 0;
+}

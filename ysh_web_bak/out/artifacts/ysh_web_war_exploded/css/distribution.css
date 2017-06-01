@@ -1,0 +1,197 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input {
+	-webkit-appearance: none;
+}
+
+button {
+	-moz-user-select: none;
+	-webkit-user-select: none
+}
+footer {
+	width: 100%;
+	height: 2.375rem;
+	position: fixed;
+	left: 50%;
+	bottom: .5rem;
+	;
+}
+
+footer a {
+	display: block;
+	width: 6.96rem;
+	height: 2rem;
+	background: #cd262f;
+	color: white;
+	text-align: center;
+	line-height: 2rem;
+	font-size: 14px;
+	border-radius: 20px;
+	margin-left: -3.48rem;
+}
+
+.bj {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	overflow-y: auto;
+}
+
+.bj img {
+	width: 100%;
+	height: auto;
+	margin-bottom:-4px;
+}
+
+.submitBox {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -17rem;
+	z-index: 99;
+	background: #f4f4f4;
+}
+
+label {
+	display: block;
+	background: white;
+	height: 2.8rem;
+	width: 100%;
+	line-height: 2.8rem;
+}
+
+.phone {
+	border-top: 1px solid #e8e8e8;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+label i {
+	color: red;
+	margin: .3rem .2rem 0 .8rem;
+}
+
+label span {
+	color: #3f3f3f;
+	font-size: 15px;
+}
+
+label input {
+	color: #3f3f3f;
+	font-size: 15px;
+	width: 70%;
+}
+
+.subP {
+	width: 100%;
+	background: #f4f4f4;
+	padding: .5rem 0;
+	height: 2.35rem;
+}
+
+.submitBtn {
+	background: #118fff;
+	border-radius: 3px;
+	display: block;
+	text-align: center;
+	color: white;
+	line-height: 2.3rem;
+	font-size: 15px;
+	position: absolute;
+	left: .85rem;
+	right: .85rem;
+}
+
+div.titleBox {
+	width: 100%;
+	height: 3.6rem;
+	background: white;
+	margin-bottom: .625rem;
+	position: relative;
+}
+
+div.titleBox div {
+	width: 3.5rem;
+	height: 3.5rem;
+	background: white;
+	border-radius: 3px;
+	position: absolute;
+	left: 1rem;
+	top: -.5rem;
+	box-shadow: 0 0 10px 0px #ccc;
+}
+
+div.titleBox div img {
+	width: 3.1rem;
+	height: 3.1rem;
+	border-radius: 3px;
+	margin: .2rem;
+}
+
+div.titleBox h4 {
+	position: relative;
+	left: 4.8rem;
+	top: .85rem;
+	width: 10rem;
+	line-height: 1.2rem;
+	font-size: 15px;
+	color: #3f3f3f;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+div.titleBox span {
+	position: absolute;
+	top: 1rem;
+	color: red;
+	right: .85rem;
+	font-size: 15px;
+}
+
+#masking {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(0, 0, 0, .6);
+	z-index: 99;
+}
+
+.erweima {
+	width: 15rem;
+	height: 10.25rem;
+	position: absolute;
+	left: 50%;
+	margin-left: -7.5rem;
+	top: 50%;
+	margin-top: -5.1rem;
+	background: white;
+	z-index: 1000;
+}
+
+.erweima img.close {
+	width: 1rem;
+	height: 1rem;
+	position: absolute;
+	top: .5rem;
+	right: .5rem;
+}
+
+.erweima img.img {
+	width: 13.25rem;
+	height: 6.15rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -6.625rem;
+	margin-top: -3.075rem;
+}

@@ -1,0 +1,68 @@
+﻿database.usePool=true
+jdbc.debug=true
+
+
+#瑜是乎
+weixin.appid=wx10352e193b39e646
+weixin.appsecret=99df3da0fe17e25af7b0e80522b3ecf7
+weixin.mch_id=1248655401
+weixin.notify_url=http://wx.keepyoga.com/order/notify.html
+weixin.sign_type=MD5
+weixin.apikey=Abcdefg123455KADJFKLAJDLFAKDFJAL
+weixin.askteacher.templateid=xMiaa77kkuwJagANYJRxVP4AwHx0U841noRmXZ0GKN0
+weixin.buycourse.templateid=l7KtkV-Tn4Ha49AmLA9SJTOrTdsTdXe26mQIUIKUsyw
+weixin.answerquestion.templateid=KnJbUzQlyOtVYlwit3IWOrgTt0OyVMI4u9Cd88GHnto
+weixin.paymoneyteacher.templateid=rR0IcK--KqdKFGq0wf5olq2mlPWu_90RE882h7gK38c
+weixin.returnmoney.templateid=UgHFEqUyMWLDRLW_jP_2aflllOf975pHToTw6Cs94bk
+weixin.distributor.templateid=aYSybnXB6Fqr_ugsHIIMhjVwl8je41uRTEk9kbQHFdo
+weixin.Assistant.templateid=bTQ7WaP6yeSSz1GiPRBAy1nTUvedsRmVh7jNhmIjA-M
+
+#图铃机器人
+tuling.apikey =745a4a1fe7608d7b1fcda1cd5b7e468e
+tuling.secret =c0cd1be18745ca0f
+
+
+# 测试服务器数据库连接池配置
+database.slave.driver=com.mysql.jdbc.Driver
+database.slave.url=jdbc:mysql://123.57.224.174:3306/yoga?#useUnicode=true&noAccessToProcedureBodies=true
+database.slave.username=805a68b9f6fef087eff0e2cd40676770
+database.slave.password=3aff83f03921a3877d5068835b29df5a
+database.slave.maxIdleTime=3600
+database.slave.minPoolSize=5
+database.slave.maxPoolSize=10
+
+database.master.driver=com.mysql.jdbc.Driver
+database.master.url=jdbc:mysql://123.57.224.174:3306/yoga?#useUnicode=true&noAccessToProcedureBodies=true
+database.master.username=805a68b9f6fef087eff0e2cd40676770
+database.master.password=3aff83f03921a3877d5068835b29df5a
+database.master.maxIdleTime=3600
+database.master.minPoolSize=3
+database.master.maxPoolSize=10
+
+
+websocket.address=123.57.224.174:3001
+
+redis.host=182.92.8.46
+#WEBSOCKET.PORT
+redis.port=6379
+#WEBSOCKET.PASSWD
+redis.password=Ch123en123
+# 短信网关配置
+MSG.SN=SDK-BBX-010-24884
+MSG.PWD=c-A6e8-4
+
+#
+ACCESS_KEY=DlMNIE8OKACOlQlrQiwx-tRcCBa450nIVolZKc2x
+SECRET_KEY=p4V189mT9v4KWkaK2Tpfa4PY-Xkf8knD9AF8Jimp
+BUCKET_NAME=fishtree
+
+domain=http://weixin.keepyoga.com
+cdndomain=http://wimg.keepyoga.com
+# 证书路径
+APICERT=/data/kk/cert/apiclient_cert.p12
+
+
+# 防止SQL注入的规则
+INJ_STR='|and|exec|insert|select|drop|delete|update|count|chr|mid|master|truncate|char|declare|or
+
+WARM_WINTER_COURSE=487/492/502/503/496/499/500/501/504/494/507/508/509/491/495/498/490/489/505/506/486/488

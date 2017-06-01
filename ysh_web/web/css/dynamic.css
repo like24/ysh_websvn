@@ -1,0 +1,528 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 3.2rem;
+    background: white;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+header dl {
+    width: 100%;
+}
+
+header dl dt {
+    position: absolute;
+    left: .45rem;
+    top: .6rem;
+}
+
+header dl dd {
+    margin-top: .6rem;
+    position: absolute;
+    left: 2.925rem;
+    width: 100%;
+    height: 2rem;
+}
+
+header dl dd h2 {
+    width: 100%;
+    font-size: 15px;
+    width: 100%;
+    color: #3f3f3f;
+    position: absolute;
+    top: 0;
+}
+
+header dl dd h2 span {
+    width: 60%;
+    font-size: 12px;
+    color: #9c9c9c;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+}
+
+header dl dd p {
+    color: #9c9c9c;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 72%;
+    position: absolute;
+    bottom: 0;
+}
+
+header span.sanjiao {
+    width: 7px;
+    height: 12px;
+    background: url("../images/sanjiao.jpg") no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    margin-top: -6px;
+}
+
+p.teach-remind {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #c6c6c6;
+    line-height: 1.25rem;
+    height: 1.25rem;
+}
+
+.mainBox {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2.405rem;
+    top: 3.2rem;
+    overflow: hidden;
+}
+
+.main {
+    top: 4.45rem;
+}
+
+.list li {
+    position: relative;
+}
+
+.list li dl.son,
+.list li dl.teach-son {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+}
+
+.list li dl.son button,
+.list li dl.teach-son button {
+    width: 10.375rem;
+    height: 2.05rem;
+    border: none;
+    background: #1d92fb;
+    outline: none;
+    color: white;
+    font-size: 13px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.list li dl dt {
+    margin: 0 .65rem 0 .45rem;
+}
+
+.list li dl.teach-son {
+    -webkit-box-pack: end;
+}
+
+.list li dl.son button img,
+.list li dl.teach-son button img {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin-top: -.5rem;
+}
+
+.list li dl.teach-son button img {
+    position: absolute;
+    left: 8.3rem;
+    top: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin-top: -.5rem;
+    transform: rotate(180deg);
+}
+
+.list li dl.student,
+.list li dl.teach,
+.list li dl.self {
+    display: -webkit-box;
+    margin-bottom: .45rem;
+}
+
+.list li {
+    margin-bottom: .45rem;
+}
+
+.list li dl.student dd,
+.list li dl.teach dd {
+    background: white;
+    width: 10.25rem;
+    border-radius: 3px;
+    position: relative;
+    padding: .35rem .5rem;
+    border: 1px solid #e8e8e8;
+}
+
+.list li dl.self {
+    -webkit-box-pack: end;
+}
+
+.list li dl.self dd {
+    background: #96cdfd;
+    width: 10.25rem;
+    border-radius: 3px;
+    padding: .35rem .5rem;
+    border: 1px solid #0c89fa;
+}
+
+.list li dl.teach dd {
+    border: 2px solid #1d92fb;
+}
+
+.list li dl.student dd span,
+.list li dl.teach dd span {
+    position: absolute;
+}
+
+.list li dl dd p {
+    line-height: 1rem;
+    font-size: 15px;
+    color: #3f3f3f;
+}
+
+footer {
+    width: 100%;
+    height: 2.325rem;
+    border-top: 1px solid #c6c6c6;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+footer div.student {
+    width: 100%;
+    height: 2.325rem;
+}
+
+footer div form {
+    position: relative;
+    width: 100%;
+}
+
+footer div.teach span.son {
+    background: url("../images/son1.png") no-repeat;
+    width: 1.65rem;
+    height: 1.65rem;
+    background-size: contain;
+    position: absolute;
+    left: .45rem;
+    top: .34rem;
+}
+
+footer div.teach textarea {
+    position: absolute;
+    height: 1.65rem;
+    border: none;
+    outline: none;
+    width: 8.5rem;
+    background: transparent;
+    padding: 0 .5rem;
+    top: .7rem;
+}
+
+footer div.teach span.face {
+    position: absolute;
+    height: 1.65rem;
+    border: none;
+    outline: none;
+    width: 9.6rem;
+    background: url("../images/face.png") no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: .34rem;
+    right: -4.8rem;
+}
+
+footer div.student span {
+    background: url("../images/face.png") no-repeat;
+    width: 1.65rem;
+    height: 1.65rem;
+    background-size: contain;
+    position: absolute;
+    left: .45rem;
+    top: .34rem;
+}
+
+footer div.teach span.son-tex {
+    background: url("../images/key.png") no-repeat;
+    width: 1.65rem;
+    height: 1.65rem;
+    background-size: contain;
+    position: absolute;
+    left: .45rem;
+    top: .34rem;
+}
+
+footer div.student textarea {
+    position: absolute;
+    height: 1.65rem;
+    border: none;
+    outline: none;
+    width: 10.5rem;
+    background: transparent;
+    padding: 0 .5rem;
+    top: .34rem;
+}
+
+footer div.student .tex {
+    border-bottom: 1px solid #C3C3C3;
+    height: 2rem;
+    width: 11.5rem;
+    position: absolute;
+    left: 2.8rem;
+}
+
+footer div.teach .record {
+    position: absolute;
+    left: 2.85rem;
+    height: 1.65rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    width: 8.5rem;
+    background: white;
+    padding: 0 .5rem;
+    top: .34rem;
+    line-height: 1.65rem;
+    font-size: 13px;
+    color: #ccc;
+    display: none;
+}
+
+footer div.teach .tex {
+    border-bottom: 1px solid #C3C3C3;
+    height: 2rem;
+    width: 9.5rem;
+    position: absolute;
+    left: 2.8rem;
+}
+
+footer div.student button,
+footer div.teach button {
+    border-radius: 17px;
+    position: absolute;
+    right: .45rem;
+    outline: none;
+    border: 1px solid #e8e8e8;
+    font-size: 13px;
+    background: #9c9c9c;
+    padding: .35rem .5rem;
+    color: white;
+    border: none;
+    top: .45rem;
+    border-radius: 3px;
+}
+
+
+/*三角*/
+
+.teach dd,
+.student dd {
+    position: relative;
+}
+
+.triangle-left-teach {
+    display: block;
+    width: 11px;
+    height: 28px;
+    font-size: 30px;
+    overflow: hidden;
+    left: -17px;
+    top: 0;
+    color: #1d92fb;
+}
+
+.triangle-left-teach1 {
+    display: block;
+    width: 11px;
+    height: 28px;
+    font-size: 30px;
+    overflow: hidden;
+    left: -14px;
+    top: 0;
+    color: white;
+    z-index: 4;
+}
+
+.triangle-left-student {
+    display: block;
+    width: 11px;
+    height: 28px;
+    font-size: 30px;
+    overflow: hidden;
+    left: -17px;
+    top: 0;
+    color: #e8e8e8;
+}
+
+.triangle-left-student1 {
+    display: block;
+    width: 11px;
+    height: 28px;
+    font-size: 30px;
+    overflow: hidden;
+    left: -15px;
+    top: 0;
+    color: white;
+    z-index: 4;
+}
+
+.self dd {
+    position: relative;
+}
+
+li dd {
+    min-height: 2rem;
+}
+
+.triangle-left-self {
+    display: block;
+    width: 11px;
+    height: 28px;
+    font-size: 30px;
+    overflow: hidden;
+    color: #0c89fa;
+    transform: rotate(180deg);
+    position: absolute;
+    top: .5rem;
+    right: -8px;
+}
+
+.triangle-left-self1 {
+    display: block;
+    position: absolute;
+    width: 11px;
+    height: 28px;
+    font-size: 30px;
+    overflow: hidden;
+    color: #96cdfd;
+    z-index: 4;
+    transform: rotate(180deg);
+    right: -6px;
+    top: .5rem;
+}
+
+li dd div {
+    position: absolute;
+    left: 0;
+    background: white;
+    z-index: 2;
+    width: 5px;
+    height: 2rem;
+}
+
+li .self dd div {
+    background: #96cdfd;
+    left: 98%;
+    z-index: 4;
+    margin-left: -1px;
+}
+
+.student dt span {
+    position: absolute;
+    left: .45rem;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .5);
+    display: none;
+}
+
+.student dt .Gag {
+    position: absolute;
+    left: 1.65rem;
+    top: 1.3rem;
+    width: .74rem;
+    height: .76rem;
+    border-radius: 50%;
+    z-index: 4;
+    display: none;
+}
+
+
+/*语音弹框*/
+
+.mask {
+    width: 9.35rem;
+    height: 9.35rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -4.675rem;
+    margin-left: -4.675rem;
+    z-index: 999;
+    background: rgba(0, 0, 0, .5);
+}
+
+.mask img {
+    width: 5.7rem;
+    height: 4.725rem;
+    border-radius: 0;
+    position: absolute;
+    left: 50%;
+    margin-left: -2.85rem;
+    top: 50%;
+    margin-top: -3rem;
+}
+
+.mask img.maskimg {
+    width: 3.75rem;
+    height: 4.875rem;
+    margin-left: -1.875rem;
+    margin-top: -3.5rem;
+}
+
+.mask p {
+    font-size: 13px;
+    color: white;
+    width: 8rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -4rem;
+    margin-top: 2.4rem;
+    text-align: center;
+}
+
+.mask p.bj {
+    background: #772013;
+    opacity: .8;
+}
+
+.mask img.shrot-time {
+    width: 2.825rem;
+    height: 4.725rem;
+    margin-left: -1.875rem;
+    margin-top: -3.5rem;
+}
+
+.teach dt span {
+    position: absolute;
+    background: url("../images/teach.png") no-repeat;
+    background-size: contain;
+    width: 1.725rem;
+    height: .5rem;
+    top: 1.5rem;
+    left: .625rem;
+}

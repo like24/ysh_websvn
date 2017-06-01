@@ -1,0 +1,286 @@
+.main {
+    height: 100%;
+}
+
+h2 a {
+    color: #3f3f3f;
+    font-size: 15px;
+}
+
+#list li {
+    width: 100%;
+    height: auto;
+    margin-bottom: .5rem;
+    padding: .75rem 0 .85rem .875rem;
+    background: white;
+}
+
+.nav ul li {
+    padding: 0;
+    height: 1.5rem;
+}
+
+.main ul li h2 {
+    width: 16.2rem;
+    font-size: 15px;
+    color: #403f40;
+    line-height: 1.2rem;
+}
+
+.main ul li dl {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+}
+
+.main dl dt {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: .7rem;
+    margin-top: .2rem;
+}
+
+.main dl dt img {
+    width: 100%;
+    height: 100%;
+}
+
+.main dl dd a {
+    width: 10.4rem;
+    height: 2rem;
+    border: none;
+    background: #1d92fb;
+    text-align: center;
+    line-height: 2rem;
+    color: white;
+    font-size: 13px;
+    margin-right: .5rem;
+    border-radius: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+.main dl dd a img {
+    position: absolute;
+    left: 1rem;
+    top: .5rem;
+}
+
+.main p span.name {
+    color: #9c9c9c;
+    font-size: 13px;
+}
+
+.main div span.summary {
+    display: inline-block;
+    width: 75%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+    position: absolute;
+    color: #9c9c9c;
+    top: .05rem;
+}
+
+.main div p.introduction {
+    margin: .6rem 0 .375rem 0;
+    position: relative;
+    top: -.3rem;
+}
+
+.main dl span {
+    color: #c6c6c6;
+    font-size: 15px;
+}
+
+.main b {
+    font-weight: normal;
+    color: #9c9c9c;
+    position: relative;
+    margin: 0.3rem;
+}
+
+.search {
+    position: absolute;
+    right: .85rem;
+    top: .4rem;
+}
+
+.search img {
+    width: .925rem;
+    height: .925rem;
+}
+
+.iscrollBox {
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+dl dd span {
+    margin-left: .2rem;
+}
+
+dl dd img {
+    width: 1rem;
+    height: 1rem;
+}
+
+
+/*下拉加载开始*/
+
+#pullUp {
+    text-align: center;
+}
+
+
+/*下拉加载结束*/
+
+.main {
+    height: 100%;
+}
+
+h2 a {
+    color: #3f3f3f;
+    font-size: 15px;
+}
+
+#list li {
+    width: 100%;
+    height: auto;
+    margin-bottom: .5rem;
+    padding: .75rem 0 .85rem .875rem;
+    background: white;
+}
+
+.nav ul li {
+    padding: 0;
+    height: 1.5rem;
+}
+
+.main ul li h2 {
+    width: 16.2rem;
+    font-size: 15px;
+    color: #403f40;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+}
+
+.main ul li dl {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+}
+
+.main dl dt {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: .7rem;
+    margin-top: .2rem;
+}
+
+.main dl dt img {
+    width: 100%;
+    height: 100%;
+}
+
+.main dl dd a {
+    width: 10.4rem;
+    height: 2rem;
+    border: none;
+    background: #1d92fb;
+    text-align: center;
+    line-height: 2rem;
+    color: white;
+    font-size: 13px;
+    margin-right: .5rem;
+    border-radius: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+.main dl dd a img {
+    position: absolute;
+    left: 1rem;
+    top: .5rem;
+}
+
+.main p span.name {
+    color: #9c9c9c;
+    font-size: 12px;
+}
+
+.main div span.summary {
+    display: inline-block;
+    width: 65%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+    position: absolute;
+    color: #9c9c9c;
+    font-size: 12px;
+}
+
+.main div p.introduction {
+    margin: .6rem 0 .375rem 0;
+    position: relative;
+    top: -.3rem;
+}
+
+.main dl span {
+    color: #c6c6c6;
+    font-size: 15px;
+}
+
+.main b {
+    font-weight: normal;
+    color: #9c9c9c;
+    position: relative;
+    margin: 0.3rem;
+}
+
+.search {
+    position: absolute;
+    right: .85rem;
+    top: .4rem;
+}
+
+.search img {
+    width: .925rem;
+    height: .925rem;
+}
+
+.iscrollBox {
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+dl dd span {
+    margin-left: .2rem;
+}
+
+dl dd img {
+    width: 1rem;
+    height: 1rem;
+}
+
+.activity_banner {
+    width: 100%;
+    height: auto;
+}
+
+.activity_banner img {
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+    margin-bottom: .5rem;
+}
+
+
+/*下拉加载开始*/
+
+#pullUp {
+    text-align: center;
+}
+
+
+/*下拉加载结束*/

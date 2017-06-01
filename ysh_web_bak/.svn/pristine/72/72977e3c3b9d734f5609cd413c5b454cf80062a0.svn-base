@@ -1,0 +1,85 @@
+
+/*介绍开始*/
+.content form{
+	width:100%;
+	height: 1.95rem;
+	margin-top:.75rem;
+}
+.content form input{
+	width: 12.5rem;
+	height: 1.95rem;
+	border-radius: 4px;
+	margin: 0 .425rem 0 .83rem;
+	border:1px solid #b0b0b0;
+	text-indent: 1rem;
+	font-size: 13px;
+}
+.content form button{
+	font-size: 13px;
+	width: 3rem;
+	height: 2rem;
+	border-radius: 4px;
+	background: #1d92fb;
+	border:none;
+	color: white;
+}
+.list{
+	width:100%;
+}
+
+.list li{
+	margin-top: .75rem;
+	border-bottom: 1px solid #b0b0b0;
+	padding-bottom: .5rem;
+}
+.list li dl{
+	display:-webkit-box;
+	display:-moz-box;
+	display:-ms-box;
+	width: 100%;
+	height: 1.8rem;
+}
+.list li dl dt{
+	width:1.8rem;
+	height:1.8rem;
+	margin:0 .7rem 0 .5rem;
+}
+.list li dl dt img{
+	width: 100%;
+	height: 100%;
+}
+.list li dl dd h3 a{
+	line-height: 1.8rem;
+	font-size: 16px;
+	color:#3f3f3f;
+}
+.list li div{
+	margin: 0 .85rem ;
+
+}
+.list li div h4{
+	width: 100%;
+	font-size: 14px;
+	color: #3f3f3f;
+	margin:.8rem 0;
+	line-height: 1rem;
+}
+.list li div p{
+	color:#9c9c9c;
+	font-size: 13px;
+}
+/*介绍结束*/
+/*下拉加载开始*/
+ #pullUp {
+    height:2.35rem;
+    line-height:2.35rem;
+    font-size:14px;
+    color:#888;
+    border-bottom: 1px solid #ccc;
+    background: #f4f4f4;
+}
+#pullUp .pullUpLabel{
+    margin-top: .4rem;
+    margin-left: .1rem;
+}   
+/*下拉加载结束*/

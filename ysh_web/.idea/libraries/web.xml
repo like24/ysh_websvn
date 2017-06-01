@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="web">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/web/WEB-INF/lib" />
+      <root url="file://$USER_HOME$/Documents/software/apache-tomcat-8.0.43/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$USER_HOME$/Documents/software/apache-tomcat-8.0.43/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/web/WEB-INF/lib" recursive="false" />
+  </library>
+</component>

@@ -1,0 +1,138 @@
+package com.yoga.controller.v2.websocket;
+
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.joda.time.DateTime;
+
+import com.yoga.controller.v2.Logger;
+import com.yoga.utils.Config;
+
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
+
+
+
+public class R  {
+
+	private static Logger logger = new Logger();
+	private static ObjectMapper mapper;
+	
+	private static JedisPool pool = null;
+	
+	public static synchronized Jedis getJedisInstance() {
+		if (null == pool) {
+			JedisPoolConfig config = new JedisPoolConfig();
+			config.setMaxIdle(50);
+			config.setMaxTotal(300);
+			config.setTestOnBorrow(false);
+			config.setTestOnReturn(false);
+			pool = new JedisPool(config,Config.getString("redis.host"),Integer.valueOf(Config.getString("redis.port")),1000);
+		}
+		return pool.getResource();
+	}
+	
+	public static synchronized ObjectMapper getMapperInstance(boolean createNew) {   
+        if (createNew) {   
+            return new ObjectMapper();   
+        } else if (mapper == null) {   
+            mapper = new ObjectMapper();   
+        }   
+
+        return mapper;   
+    } 
+	public static <T> String objectToJson(T obj) {
+		mapper = getMapperInstance(false);
+		
+		String json = "";
+		try {
+			json = mapper.writeValueAsString(obj);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.logError("Json : Object to json err:", e);
+		}
+		return json;
+		
+	}
+	
+	public static <T> T jsonToObject(String json,Class<T> cls) {
+		
+		mapper = getMapperInstance(false);
+		T vo = null;
+		try {
+			vo = mapper.readValue(json, cls );
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.logError("Json : Json string to object", e);
+		}
+		return vo;
+	}
+
+	/**
+	 * 对象转数组
+	 * @param obj
+	 * @return
+	 */
+	public <T> byte[] toByteArray (T obj) {
+		byte[] bytes = null;
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		try {
+			ObjectOutputStream oos = new ObjectOutputStream(bos);
+			oos.writeObject(obj);
+			oos.flush();
+			bytes = bos.toByteArray ();
+			oos.close();
+			bos.close();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		return bytes;
+	}
+
+	/**
+	 * 数组转对象
+	 * @param bytes
+	 * @return
+	 */
+	public static  <T> T toObject (byte[] bytes) {
+		T obj = null;
+		try {
+			ByteArrayInputStream bis = new ByteArrayInputStream (bytes);
+			ObjectInputStream ois = new ObjectInputStream (bis);
+			obj = (T) ois.readObject();
+			ois.close();
+			bis.close();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} catch (ClassNotFoundException ex) {
+			ex.printStackTrace();
+		}
+		return obj;
+	}
+
+
+	public static void main(String[] args) {
+		Jedis jedis = getJedisInstance();
+		jedis.auth("Ch123en123");
+		jedis.del("user:aa");
+		DateTime dateTime = new DateTime();
+//		jedis.zadd("user:aa", dateTime.getMillis(), "1");
+//		jedis.zadd("user:aa", dateTime.getMillis(), "2");
+//		jedis.zadd("user:aa", dateTime.getMillis(), "3");
+//		jedis.zadd("user:aa", dateTime.getMillis(), "4");
+		jedis.lpush("user:aa", "1");
+		jedis.lpush("user:aa", "2");
+		jedis.lpush("user:aa", "3");
+		jedis.lpush("user:aa", "4");
+		
+	    System.out.println(jedis.lrange("user:aa",0,1));// [9, 3, 6, 1]  
+
+	}
+	
+}

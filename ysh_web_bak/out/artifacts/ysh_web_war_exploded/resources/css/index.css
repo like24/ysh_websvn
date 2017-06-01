@@ -1,0 +1,388 @@
+/*------搜索框样式开始------*/
+
+.search-wrapper {
+    top: 0;
+    width: 100%;
+    height: .9rem;
+    z-index: 9;
+}
+
+.serarch-box {
+    width: 6.9rem;
+    height: .6rem;
+    margin: 0 auto;
+    top: .15rem;
+    border-radius: 100px;
+}
+
+.search-text {
+    height: .6rem;
+    line-height: .6rem;
+    font-size: .26rem;
+    color: #B3B3B3;
+    letter-spacing: .5px;
+}
+
+.search-icon {
+    left: 1.78rem;
+    top: .17rem;
+    width: .26rem;
+    height: .26rem;
+    background: url(../images/search.png) no-repeat;
+    background-size: contain;
+}
+
+
+/*------轮播图样式开始------*/
+.swiper-container1{
+    height:2.8rem;
+}
+.swiper-container2{
+    height:1.7rem;
+}
+.swiper-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/*------topnav样式开始------*/
+
+.swiper-container2 {
+    margin-bottom: .2rem !important;
+    padding-bottom: .3rem !important;
+}
+
+.swiper-container2 img {
+    display: block;
+    width: .92rem;
+    height: .92rem;
+    border-radius: 50%;
+    margin: .3rem auto .2rem auto;
+}
+
+.swiper-container2 span {
+    font-size: .26rem;
+    color: #262626;
+    text-align: center;
+}
+
+.swiper-container2 .swiper-slide {
+    width: 25% !important;
+    margin-right: 0 !important;
+    text-align: center;
+}
+.swiper-container2 .width22{
+	 width: 22% !important;
+}
+
+/*------免费推荐------*/
+
+.recommend,
+.yoga-tutor-box,
+.yoga-topic,
+.interlocution-box {
+    padding-top: .2rem;
+    padding-bottom: .05rem;
+}
+
+.title {
+    height: .66rem;
+    line-height: .66rem;
+    justify-content: space-between;
+}
+
+.title h4 {
+    font-size: .32rem;
+    color: #1C1C1C;
+    font-weight: bold;
+}
+
+.title a {
+    font-size: .28rem;
+    color: #848484;
+}
+
+.recommend .item a {
+    /* align-items: center; */
+    background-color: white;
+    height: 1.2rem;
+}
+
+.recommend .item p {
+    height: .86rem;
+    line-height: .86rem;
+    border-bottom: 1px solid #EBEBEB;
+}
+
+.recommend .item:last-child p {
+    border: none;
+}
+
+.recommend .icon {
+    width: .45rem;
+    height: .45rem;
+}
+
+.recommend .icon-audio {
+    background: url(../images/icon-audio.png) no-repeat;
+    background-size: contain;
+}
+
+.recommend .icon-video {
+    background: url(../images/icon-video.png) no-repeat;
+    background-size: contain;
+}
+
+.recommend .text {
+    flex: 1;
+    font-size: .3rem;
+    color: #252525;
+    margin-left: .2rem;
+    margin-right: 5px
+}
+
+
+/*------瑜伽导师------*/
+
+.yoga-tutor-box .item {
+    padding: .2rem 0;
+}
+
+.yoga-tutor-box img {
+    width: 1.64rem;
+    height: 1.64rem;
+    border-radius: .15rem;
+}
+
+.yoga-tutor-box dd {
+    margin-left: .3rem;
+    flex: 1;
+    border-bottom: 1px solid #EBEBEB;
+    height: 2rem;
+}
+
+.yoga-tutor-box .name {
+    font-size: .32rem;
+    color: #252525;
+    margin: .18rem 0 .13rem 0;
+}
+
+.yoga-tutor-box .job {
+    font-size: .24rem;
+    color: #B2B2B2;
+}
+
+.yoga-tutor-box .summary {
+    font-size: .26rem;
+    color: #7E7E7E;
+    padding-top:.4rem;
+}
+
+
+/*-----热门推荐------*/
+
+.hot-recommend dl {
+    padding-top: .2rem;
+}
+
+.hot-recommend dt,
+.hot-recommend img {
+    width: 2.7rem;
+    height: 1.55rem;
+    margin-right: .3rem;
+}
+
+.hot-recommend .topic {
+    font-size: .2rem;
+    color: #FFFFFF;
+    line-height: .35rem;
+    text-align: center;
+    display: inline-block;
+    margin-right: .1rem;
+    padding: 0 .05rem;
+    border-radius: 5px;
+    margin-top: -.07rem;
+    left: 3px;
+    top:7px;
+    
+}
+
+.hot-recommend .blue {
+    background: #41c3a8;
+}
+
+.hot-recommend .orange {
+    background: #4397ea;
+}
+
+.hot-recommend .blue small:after {
+    content: "视频课";
+    display: block;
+}
+
+.hot-recommend .orange small:after {
+    content: "音频课";
+    display: block;
+}
+.hot-recommend .icon {
+    width: .45rem;
+    height: .45rem;
+    position: absolute;
+    right: .1rem;
+    bottom: .1rem;
+}
+
+.hot-recommend .icon-audio {
+    background: url(../images/icon-audio1.png) no-repeat;
+    background-size: contain;
+}
+
+.hot-recommend .icon-video {
+    background: url(../images/icon-video1.png) no-repeat;
+    background-size: contain;
+}
+
+.hot-recommend dd {
+    border-bottom: 1px solid #EBEBEB;
+    height: 2.1rem;
+    max-width: 4rem;
+	min-width: 3.8rem;
+}
+
+.hot-recommend .name {
+    font-size: .3rem;
+    color: #252525;
+    line-height: .48rem;
+}
+
+.hot-recommend .type {
+    font-size: .22rem;
+    color: #7E7E7E;
+    -webkit-line-clamp: 2;
+    line-height: .32rem;
+    margin-right: 3px;
+}
+
+.hot-recommend .time {
+    font-size: .24rem;
+    color: #7E7E7E;
+    margin-top: .15rem;
+}
+
+.hot-recommend .money {
+    font-size: .25rem;
+    color: #ED6172;
+    bottom: .44rem;
+    right: 0;
+}
+
+.hot-recommend .money-7e {
+    color: #7e7e7e;
+}
+
+.hot-recommend .money small {
+    font-size: .24rem;
+}
+
+.hot-recommend .money.free {
+    font-size: .3rem;
+    color: #41C3A8;
+}
+
+
+/*------瑜伽专题------*/
+
+.yoga-topic img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: .1rem;
+}
+
+
+/*我关注的老师*/
+
+.answer-list li {
+    min-height: 2.04rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.teacher-avatar {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 0.3rem;
+    width: 1.64rem;
+    height: 1.64rem;
+}
+
+.teacher-avatar img {
+    border-radius: 0.15rem;
+    max-width: 100%;
+}
+
+.teacher-info {
+    margin-left: 2.24rem;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 0.3rem;
+}
+
+.teacher-name {
+    margin-top: 0.32rem;
+    font-size: 0.32rem;
+    color: #252525;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 0.45rem;
+}
+
+.teacher-intro {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.24rem;
+    color: #b2b2b2;
+    line-height: 0.33rem;
+}
+
+.teacher-word {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 88%;
+    margin-top: 0.25rem;
+    font-size: 0.28rem;
+    color: #7e7e7e;
+    line-height: 0.4rem;
+}
+/*直播*/
+.hot-recommend .zb-tit {
+    background: #f7944c;
+}
+
+.hot-recommend .zb-tit small:after {
+    content: "直播课";
+    display: block;
+}
+
+.hot-recommend .zb-ing {
+    background: #f7944c;
+}
+
+.hot-recommend .zb-ing small:after {
+    content: "直播中";
+    display: block;
+}
+.hot-recommend .zb {
+    background: #43c4a9;
+}
+
+.hot-recommend .zb small:after {
+    content: "即将开始";
+    display: block;
+}

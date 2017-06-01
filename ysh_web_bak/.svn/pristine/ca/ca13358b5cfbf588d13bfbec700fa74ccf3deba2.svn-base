@@ -1,0 +1,157 @@
+html,
+body,
+.wrapper {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+	background: #f4f4f4;
+}
+
+.top {
+	width: 100%;
+	height: 3.7rem;
+	background: white;
+	display: -webkit-box;
+	-webkit-box-align: center;
+}
+
+.top img {
+	width: 1.9rem;
+	height: 1.9rem;
+	margin: 0 .875rem;
+}
+
+.top h1 {
+	font-size: .8rem;
+	color: #118eff;
+	font-weight: bold;
+}
+
+.center {
+	width: 100%;
+	background: white;
+	margin: .625rem 0;
+}
+
+.center h1 {
+	font-size: 14px;
+	color: #3f3f3f;
+	font-weight: bold;
+	line-height: 2.425rem;
+	height: 2.2rem;
+	border-bottom: 1px solid #e1e1e1;
+	padding-left: .875rem;
+}
+
+.center li {
+	margin: 0 .875rem;
+	border-bottom: 1px solid #e1e1e1;
+	display: -webkit-box;
+	padding-top: .625rem;
+	padding-bottom: .9rem;
+}
+*{
+	-webkit-user-select: text !important;
+	-moz-user-select: text !important;
+	-ms-user-select: text !important;
+	user-select: text !important;
+}
+#line {
+	background: #e3ebf6;
+	color: #4675b5;
+	font-size: 12px;
+	padding: .5rem;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	width: 70%;
+	word-break: break-all;
+	-webkit-user-select: text !important;
+	-moz-user-select: text !important;
+	-ms-user-select: text !important;
+	user-select: text !important;
+}
+
+.center li span {
+	display: block;
+	width: 1.3rem;
+	text-align: center;
+	margin-right: .5rem;
+}
+
+.center li p {
+	font-size: 12px;
+	color: #828282;
+}
+
+.center li p img {
+	width: 1rem;
+	height: 1rem;
+	position: relative;
+	top: .2rem;
+	margin: 0 .1rem;
+}
+
+.center p {
+	width: 14.6rem;
+}
+
+.center li span i {
+	display: block;
+	background: #118eff;
+	width: .85rem;
+	height: .85rem;
+	border-radius: 50%;
+	text-align: center;
+	line-height: .85rem;
+	color: white;
+	font-style: normal;
+	font-size: 10px;
+	margin: 0 auto;
+}
+
+.center li span b {
+	display: block;
+	color: #118eff;
+	margin-top: .2rem;
+}
+
+.center li h2 {
+	font-size: 14px;
+	color: #3f3f3f;
+}
+
+.center li:last-child h2 {
+	margin-bottom: .5rem;
+}
+
+.center li:last-child {
+	border-bottom: none;
+}
+
+.center li:last-child p {
+	line-height: 1rem;
+}
+
+.bottom {
+	width: 100%;
+	background: white;
+	height: 18rem;
+}
+
+.bottom h1 {
+	font-size: 14px;
+	color: #3f3f3f;
+	font-weight: bold;
+	line-height: 2.425rem;
+	height: 2.2rem;
+	border-bottom: 1px solid #e1e1e1;
+	padding-left: .875rem;
+}
+
+.bottom p {
+	margin: .5rem .875rem 0 .875rem;
+	font-size: .6rem;
+	color: #828282;
+}

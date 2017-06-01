@@ -1,0 +1,180 @@
+html,
+body,
+.wrapper {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+header {
+	width: 100%;
+	height: 1.85rem;
+	background: #41C3A8;
+	text-align: center;
+}
+
+header h1 {
+	padding: .34rem 0 .2rem 0;
+}
+
+header small {
+	font-size: .48rem;
+	color: white;
+}
+
+header big {
+	font-size: .72rem;
+	color: white;
+}
+
+header p {
+	color: white;
+	font-size: .26rem;
+}
+
+section {
+	background: white;
+}
+
+.money-box {
+	width: 100%;
+	height: 5.09rem;
+	border-bottom: 1px solid #DFDFDF;
+	margin-bottom: .3rem;
+}
+
+.money-box h1 {
+	font-size: .32rem;
+	font-weight: 500;
+	padding: .3rem 0 0 .3rem;
+}
+
+.inputDiv {
+	border-bottom: 2px solid #F3F3F3;
+	margin: 0 .3rem;
+	display: flex;
+}
+
+.inputDiv span {
+	font-size: .83rem;
+	color: #252525;
+	margin-top: .35rem;
+}
+
+input {
+	width: 6.17rem;
+	font-size: 1.14rem;
+	color: #252525;
+}
+
+::-webkit-input-placeholder {
+	font-size: .3rem;
+	color: red;
+}
+
+.title {
+	padding: .3rem 0 .6rem .3rem;
+	font-size: .26rem;
+	color: #B2B2B2;
+}
+
+.btn {
+	width: 5.39rem;
+	height: 1.07rem;
+	background: #F7934A;
+	border-radius: 5px;
+	font-size: .44rem;
+	color: #FFFFFF;
+	margin: 0 auto;
+	display: block;
+}
+.detaills-box{
+	color:#E5E5E5;
+	font-size: .3rem;
+	margin: .26rem auto .36rem;
+	text-align: center;
+}
+.detaills-box a {
+	font-size: .3rem;
+	color: #7D7D7D;
+}
+.shouyi{
+	padding-right: .6rem;
+}
+.tixian{
+	padding-left:.6rem;
+}
+.explain-box{
+	height: 100%;
+}
+.explain-box  h1{
+	font-size: .32rem;
+color: #252525;
+padding: .3rem;
+}
+.explain-box .icon{
+	width:.3rem;
+	height: .3rem;
+	background: url(../images/explain.png) no-repeat;
+	background-size: contain;
+	margin-right: .2rem;
+	position: relative;
+	top:.05rem;
+}
+.explain-box li{
+	font-size:.26rem;
+color: #B2B2B2;
+padding: 0 0 .3rem .7rem;
+}
+.explain-box a{
+	text-align: center;
+	font-size:.26rem;
+color: #2E99F9;
+display: block;
+padding-top: 2.5rem;
+}
+.showBox{
+	position: fixed;
+	background: white;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	z-index: 9;
+	display: none;
+}
+.showBox img{
+	width: 2rem;
+	height: 2rem;
+	margin: 1rem auto;
+	display: block;
+
+}
+.showBox h2 {
+	font-size: .44rem;
+	color: #000000;
+	text-align: center;
+	padding-top: .6rem;
+}
+.showBox p {
+	padding: .27rem 0 .7rem 0;
+	font-size: .26rem;
+	color: #909090;
+	text-align: center;
+}
+.showBox a {
+	display: block;
+	background: #F7934A;
+	border-radius: 5px;
+	width: 6.9rem;
+	height: 1.1rem;
+	text-align: center;
+	line-height: 1.1rem;
+	color: white;
+	margin: 0 auto;
+	font-size: .44rem;
+	transition: opacity .3s;
+}
+.showBox a:active{
+	opacity: .9;
+}

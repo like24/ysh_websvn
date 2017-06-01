@@ -1,0 +1,277 @@
+.main>div:nth-child(1),
+.main>div:nth-child(2) {
+	width: 100%;
+	background: white;
+	padding-bottom: .8rem;
+	overflow: hidden;
+}
+
+.main>div:nth-child(1) {
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.main>div:nth-child(1)>dl,
+.main>div:nth-child(2)>dl {
+	width: 100%;
+	height: 1.4rem;
+	margin-bottom: .362rem;
+}
+
+.main>div:nth-child(1)>dl dt,
+.main>div:nth-child(2)>dl dt {
+	margin-left: .625rem;
+	margin-right: .625rem;
+	position: relative;
+	top: .15rem;
+}
+
+.main>div:nth-child(1)>dl:nth-child(1),
+.main>div:nth-child(2)>dl:nth-child(1) {
+	width: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-box;
+	padding-top: .825rem;
+}
+
+.main>div:nth-child(1)>dl:nth-child(1)>dt,
+.main>div:nth-child(2)>dl:nth-child(1)>dt {
+	width: 1.4rem;
+	height: 1.4rem;
+	: .375rem;
+}
+
+.main>div:nth-child(1)>dl:nth-child(1) dd,
+.main>div:nth-child(2)>dl:nth-child(1) dd {
+	width: 100%;
+	height: 1.6rem;
+	position: relative;
+}
+
+.main>div:nth-child(1)>dl:nth-child(1)>dd h6,
+.main>div:nth-child(2)>dl:nth-child(1)>dd h6 {
+	maigin-lift: .875rem;
+	line-height: 1.8rem;
+	color: #403f40;
+	font-size: 15px;
+	display: inline-block;
+}
+
+.main>div:nth-child(1)>dl:nth-child(1)>dd span,
+.main>div:nth-child(2)>dl:nth-child(1)>dd span {
+	line-height: 1.4rem;
+	color: #fa1d26;
+	font-size: 15px;
+	position: absolute;
+	top: .2rem;
+	right: 3.14rem;
+}
+
+.main>div:nth-child(1)>dl:nth-child(1)>dt img,
+.main>div:nth-child(2)>dl:nth-child(1)>dt img {
+	width: 100%;
+	height: 100%;
+}
+
+#goDetails {
+	margin-top: .5rem;
+}
+
+#goDetails>h3 {
+	font-size: 15px;
+	color: #3f3f3f;
+	margin-left: .75rem;
+	margin-bottom: .625rem;
+}
+
+#goDetails>p {
+	font-size: 13px;
+	color: #9c9c9c;
+	margin-left: .75rem;
+}
+
+#goDetails>p a {
+	float: right;
+	color: #878787;
+	position: relative;
+	top: -.5rem;
+	display: inline-block;
+	width: .4rem;
+	height: .5rem;
+}
+
+#goDetails>p a img {
+	width: 100%;
+	height: 100%;
+}
+
+.main h2 {
+	width: 16rem;
+	margin-left: .825rem;
+	font-size: 15px;
+	color: #403f40;
+	line-height: 1.2rem;
+}
+
+.main h2+dl {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-box;
+	margin-top: .875rem;
+}
+
+.main h2+dl dt {
+	width: 1.75rem;
+	height: 1.75rem;
+	: .7rem;
+}
+
+.main h2+dl dt img {
+	width: 100%;
+	height: 100%;
+}
+
+.main h2+dl span {
+	color: #c6c6c6;
+	font-size: 15px;
+}
+
+.main h2+dl button {
+	width: 10.375rem;
+	height: 2.05rem;
+	border: none;
+	background: #41C3A8;
+	outline: none;
+	color: white;
+	font-size: 13px;
+	: .5rem;
+	border-radius: 20px;
+	position: relative;
+}
+
+.main .ago {
+	margin: 1.2rem 0 0 .825rem;
+}
+
+.main .ago span {
+	font-size: 13px;
+	color: #c6c6c6;
+}
+
+.main .ago span:nth-child(2) {
+	float: right;
+	padding-right: .875rem;
+}
+
+.main dl.son dd {
+	position: relative;
+}
+
+.main dl.son dd img {
+	position: absolute;
+	left: 1rem;
+	top: 50%;
+	width: 1rem;
+	height: 1rem;
+	margin-top: -.5rem;
+}
+
+
+/*录音播放*/
+
+#goDetails {
+	position: relative;
+	width: 100%;
+	background: white;
+	padding: 1rem 0;
+}
+
+#goDetails img {
+	position: absolute;
+	right: .875rem;
+	width: .325rem;
+	height: .55rem;
+	top: 50%;
+	margin-top: -.275rem;
+}
+
+.listening {
+	float: right;
+	margin-right: 1.5rem;
+}
+
+.zan {
+	position: relative;
+	top: -.3rem;
+	float: right;
+}
+
+.zan b {
+	display: inline-block;
+	background: url("../images/hand1.png") no-repeat;
+	background-size: contain;
+	width: .825rem;
+	height: .85rem;
+	position: relative;
+	top: .1rem;
+	right: .3rem;
+}
+
+.zan b.like {
+	background: url("../images/hand.png") no-repeat;
+	background-size: contain;
+}
+
+i {
+	font-style: normal;
+}
+
+.again {
+	text-decoration: underline;
+	width: 100%;
+	display: block;
+	color: #004bca;
+	text-align: center;
+	margin-top: 2.2rem;
+}
+.write {
+	display: block;
+	width: 4.7rem;
+	height: 1.9rem;
+	background: #41C3A8;
+	text-align: center;
+	line-height: 2.1rem;
+	border-radius: 5px;
+	color: #fff;
+	margin-left: 6.625rem;
+	font-size: 13px;
+	border: none;
+	outline: none;
+}
+
+.content_1 {
+	width: 13.975rem;
+	height: 3.4rem;
+	margin-left: .9rem;
+	font-size: 13px;
+	color: #3f3f3f;
+	background: white;
+	border: 1px solid #9c9c9c;
+	border-radius: 5px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	line-height: 1rem;
+	padding-top: .5rem;
+	border-color: #d2d2d2;
+	margin-top: .5rem;
+	margin-bottom:.5rem;
+}
+
+.number {
+    position: relative;
+    top: -2rem;
+    left: 15rem;
+    color: #9c9c9c;
+    font-size: 13px;
+    z-index: 5;
+}

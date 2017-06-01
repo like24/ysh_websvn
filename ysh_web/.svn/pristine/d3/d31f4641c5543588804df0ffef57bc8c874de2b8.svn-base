@@ -1,0 +1,538 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<%@ include file="../../../taglibs.jsp" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>随心瑜live</title>
+    <script src="${ctx}/resources/js/lib/setfontsize.min.js"></script>
+    <link rel="stylesheet" href="${ctx}/resources/css/reset.css"/>
+    <link rel="stylesheet" href="${ctx}/resources/css/sxy-live.css"/>
+</head>
+<body>
+<div id="app">
+    <div class="stash" id="stash">
+        <span>拼命加载中，请稍候……</span>
+    </div>
+    <!--隐藏显示课件start-->
+    <div class="show-hide-courseware fixed flex" id="showHideCourse">
+        <img src="${ctx}/resources/images/show-hide-courseware.png" alt="隐藏显示按钮" class="icon"/>
+        <span class="text text1">隐藏课件</span>
+        <span class="none text text2">显示课件</span>
+    </div>
+    <!--隐藏显示课件end-->
+    <!--视频播放区域start-->
+    <header class="video-box relative" id="videoBox">
+        <!--视频源-->
+        <video class="video absolute" controls="controls" id="video">
+            <source src="${course.filepath}" type="audio/ogg">
+            <source src="${course.filepath}?v=2" type="audio/ogg">
+            <source src="${course.filepath}" type="video/mp4">
+            <source src="${course.filepath}?v=2" type="video/mp4">
+            <source src="${course.filepath}" type="video/ogg">
+            <source src="${course.filepath}？v=2" type="video/ogg">
+        </video>
+        <div class="video-palyer-box absolute removeVideoMask" @click="playVideo">
+            <img src="${course.logo}" alt="课程背景图" class="video-img removeVideoMask"/>
+            <i class="icon video-play-btn "></i>
+            <div class="mask"></div>
+        </div>
+    </header>
+    <!--视频播放区域end-->
+    <!--结束直播start-->
+    <div class="close-live-box fixed" id="closeLive" @click="closeLive" v-if="identity!=0&&roomStatus!==2">
+        <div class="close-live flex">
+            <img src="${ctx}/resources/images/sxy-live-close.png" alt=""/>
+        </div>
+        <span>关闭直播</span>
+    </div>
+    <!--结束直播end-->
+    <!--在线人数start-->
+    <div class="online-box fixed">
+        <i class="icon"></i> <span class="text"><b>{{userCount}}</b>人次</span>
+    </div>
+    <!--在线人数end-->
+    <!--操作按钮start-->
+    <div class="btn-broup-box fixed" id="btnBroupBox">
+        <span class="ask-size">{{messageCount}}</span>
+        <div class="btn-box btn-box-ask" id="btnBoxAsk">
+            <button type="button">
+                <div class="flex">
+                    <i class="icon"></i>
+                </div>
+                <span class="text">提问</span>
+            </button>
+        </div>
+        <div class="btn-box btn-box-top" id="btnBoxTop">
+            <button type="button">
+                <div class="flex">
+                    <i class="icon"></i>
+                </div>
+                <span class="text">顶部</span>
+            </button>
+        </div>
+        <div class="btn-box btn-box-bottom" id="btnBoxBottom">
+            <button type="button">
+                <div class="flex">
+                    <i class="icon"></i>
+                </div>
+                <span class="text">底部</span>
+            </button>
+        </div>
+    </div>
+    <!--操作按钮end-->
+    <!--直播倒计时start-->
+    <div class="count-down-box flex" id="countDownBox">
+        <p>本次直播将于2017年3月18日 18：00开始</p>
+        <div class="count-down">
+            <span class="day">01</span>天<span class="hour">11</span>时<span class="minutes">01</span>分<span
+                class="seconds">45</span>秒
+        </div>
+    </div>
+    <!--直播倒计时end-->
+    <!--导师消息start-->
+    <section class="teach-wrapper absolute" id="mainBox" :class="{bottom0:roomStatus==2,top422:roomStatus==2}">
+        <ul>
+            <%--新近直播间 推送的消息--%>
+            <li class="ls-zcr flex item">
+                <!--头像-->
+                <div class="head-box">
+                    <img src="http://wimg.keepyoga.com/images/sxyLive-zhuchiren.jpg" alt="" class="head"/>
+                </div>
+                <div class="border-box">
+                    <!--姓名和身份-->
+                    <div>
+                        <h6 class="name">随心瑜</h6>
+                        <span class="type-zcr type">主持人</span>
+                    </div>
+                    <!--消息-->
+                    <div class="text-box"> 您好，我是主持人大瑜儿，欢迎来到随心瑜Live。您可以先查看上方视频课件学习知识，直播开始后老师会进入直播间进行答疑。如有问题，可加微信客服keepyoga002进行咨询</div>
+                </div>
+            </li>
+            <li class="ls-zcr flex item" v-for="(item,index) in dataTeach" v-if="item.status==1||item.status==2">
+                <%--导师和管理元单独发的消息--%>
+                <div class="flex" v-if="!item.answerObj.length&&!item.isAnswer">
+                    <!--头像-->
+                    <div class="head-box">
+                        <img :src="item.userHeaderImg" alt="" class="head" v-if="item.status == 2"/>
+                        <img src="http://wimg.keepyoga.com/images/sxyLive-zhuchiren.jpg" alt="" class="head" v-if="item.status == 1">
+                    </div>
+                    <div class="border-box">
+                        <%--<!--姓名和身份-->--%>
+                        <div>
+                            <h6 class="name">{{item.userNickName}}</h6>
+                            <span class="type-zcr type" v-if="item.status == 1">主持人</span>
+                            <span class="type-ls type" v-if="item.status == 2">老师</span>
+                            <span style="margin-left: 5px;color: #828282;">{{item.messageCreateTime}}</span>
+                        </div>
+                        <%--<!--消息-->--%>
+                        <%----%>
+                        <div class="text-box" v-if="item.talkType==0">{{item.content}}</div>
+                        <%--<!--语音-->--%>
+                        <div class="audio-btn-box" v-if="item.talkType=='1'">
+                            <button type="button" class="btn audiobtn" :data-src="item.content"
+                                    :style="'width:'+item.setAudioBtnW+'rem'" @click="playAudio($event)">
+                                <img src="http://wimg.keepyoga.com/image/son.png" alt=""/>
+                            </button>
+                            <div class="inline-block audio-time-box">
+                                <i class="cicle"></i> <span class="audio-time">{{item.time}}"</span>
+                            </div>
+                        </div>
+                        <%--<!-- 图片 -->--%>
+                        <div class="pic-box" v-if="item.talkType=='2'">
+                            <img :src="item.content" class="previewImage" alt="" @click="lookImg(item.content)"/>
+                        </div>
+                    </div>
+                    <%--<!--撤回按钮-->--%>
+                    <div class="chehui-btn chehui-btn1" data-id="1" style="display: none;"></div>
+                </div>
+                <div class="flex" v-if="item.answerObj.length">
+                    <!--头像-->
+                    <div class="head-box">
+                        <img :src="item.answerObj[0].userHeaderImg" alt="" class="head" v-if="item.status == 2"/>
+                        <img src="http://wimg.keepyoga.com/images/sxyLive-zhuchiren.jpg" alt="" class="head" v-if="item.status == 1">
+                    </div>
+                    <div class="border-box">
+                        <!--姓名和身份-->
+                        <div>
+                            <h6 class="name">{{item.answerObj[0].userNickName}}</h6>
+                            <span class="type-zcr type" v-if="item.status == 1">主持人</span>
+                            <span class="type-ls type" v-if="item.status == 2">老师</span>
+                        </div>
+                        <!--回复内容主体-->
+                        <div class="bj-box">
+                            <%--学员的提问--%>
+                            <div class=" question-box flex" style="border-bottom: 1px solid #696563;">
+                                <i class="icon question-icon "></i>
+                                <!--学员问的问题-->
+                                <div>
+                                    <div class="question-text-box flex ">
+                                        <p class="inline-block ">
+                                            <span>{{item.userNickName}}：</span> <span style="margin-left: 5px;color: #828282;">{{item.messageCreateTime}}</span>
+                                            {{item.content}}
+                                        </p>
+                                        <button type="button" style="margin: 0 0 .2rem .2rem;" class="answer-btn" @click="answer(item,index)"
+                                                v-if="identity!=0&&roomStatus!==2"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--老师回复消息主体-->
+                            <div class="answer-msg-box ">
+                                <i class="icon answer-icon " style="position: absolute;"></i>
+                                <template v-for="(items,index) in item.answerObj">
+
+                                    <%--语音回复--%>
+                                    <div class="audio-btn-box" style="margin-left: .3rem;margin-bottom: .2rem;" v-if="items.dataType == 1">
+                                        <button type="button" class="btn"
+                                                :data-src="items.content"
+                                                :style="'width:'+items.setAudioBtnW+'rem'" @click="playAudio($event)">
+                                            <img src="http://wimg.keepyoga.com/image/son.png" alt=""/>
+                                        </button>
+                                        <div class="inline-block audio-time-box">
+                                            <i class="cicle"></i> <span class="audio-time">{{items.time}}"</span>
+                                        </div>
+                                        <div class="chehui-btn" style="margin:.2rem 0 0 .2rem;display: none;"></div>
+                                    </div>
+                                    <%--文字回复--%>
+                                    <div style="margin-left: .3rem;margin-bottom: .2rem;" v-if="items.dataType ==0">
+                                        <div class="text-box">{{items.content}}</div>
+                                        <div class="chehui-btn" style="display: none"></div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--导师消息start-->
+    <section class="all-msg-box absolute" id="mainBox1">
+        <header class="btn-group-box flex" id="backGap">
+            <button type="button" class="btn back">回到直播</button>
+            <button type="button" class="btn gap" v-if="identity!=0&&roomStatus!==2&&!disabledStatus">全员禁言</button>
+            <button type="button" class="btn gap" v-if="identity!=0&&roomStatus!==2&&disabledStatus">全员解禁</button>
+        </header>
+        <nav id="tab" class="tab relative">
+            <ul class="flex">
+                <li class="left curr">全部</li>
+                <span>|</span>
+                <li class="right">提问</li>
+            </ul>
+            <div class="bottom absolute curr"></div>
+            <div class="none"></div>
+            <div class="bottom1 absolute "></div>
+        </nav>
+        <%--全部消息和提问的消息的大盒子--%>
+        <div class="answer-all-wrapper">
+            <!--全部消息-->
+            <div class="msg-box absolute " :class="{bottom0:roomStatus==2}"  id="allBoxAll">
+            <ul  >
+                <li class="item" v-for="(item,index) in dataAll">
+                    <%--学员的消息--%>
+                    <div class="question-box" v-if="item.status == 0">
+                        <div class="top flex">
+                            <img :src="item.userHeaderImg" alt="" class="head" @click="gapSutent(item.userId)"/> <span>{{item.userNickName}}</span><span style="margin-left: 5px;color: #828282;">{{item.messageCreateTime}}</span>
+                            <button type="button" class="button icon answer-btn" v-if="identity!==0&&item.isAsk&&roomStatus!==2"
+                                    @click="answer(item)"></button>
+                        </div>
+                        <div class="botton flex">
+                            <i class="icon question-icon"></i>
+                            <p>{{item.content}} </p>
+                        </div>
+                    </div>
+                    <%--老师和管理员的正常消息--%>
+                    <div class="answer-box" v-if="item.status !=0 && !item.answerObj.length">
+                        <div class="top flex">
+                            <img :src="item.userHeaderImg" alt="" class="head" v-if="item.status == 2"/>
+                            <img src="http://wimg.keepyoga.com/images/sxyLive-zhuchiren.jpg" alt="" v-if="item.status == 1">
+                            <h6 class="name">{{item.userNickName}}</h6>
+                            <span class="type-zcr type" v-if="item.status == 1">主持人</span>
+                            <span class="type-ls type" v-if="item.status == 2">老师</span>
+                            <span style="margin-left: 5px;color: #828282;">{{item.messageCreateTime}}</span>
+                        </div>
+                        <%--<!--回复-->--%>
+                        <div class="text-box ">
+                            <div>
+                                <!--文字回复-->
+                                <div class="flex text" v-if="item.talkType=='0'">
+                                    <p>{{item.content}}</p>
+                                    <div class="chehui-btn" style="display: none;"></div>
+                                </div>
+                                <%--<!--语音回复-->--%>
+                                <div class="audio-btn-box" v-if="item.talkType=='1'">
+                                    <button type="button" class="btn"
+                                            data-src="http://wimg.keepyoga.com/11.7dinglun.mp3" @click="playAudio($event)">
+                                        <img src="http://wimg.keepyoga.com/image/son.png" alt="">
+                                    </button>
+                                    <div class="inline-block audio-time-box">
+                                        <i class="cicle"></i> <span class="audio-time">21"</span>
+                                    </div>
+                                    <div class="chehui-btn" data-id="33" style="display: none;"></div>
+                                </div>
+                                <%--<!-- 图片 -->--%>
+                                <div class="pic-box" v-if="item.talkType=='2'">
+                                    <img :src="item.content" alt="" @click="lookImg(item.content)"/>
+                                    <div class="chehui-btn" style="display: none;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%--导师或者管理员针对学员做回复--%>
+                    <div class="question-box" v-if="item.status !=0 && item.answerObj.length" style="padding-bottom: .15rem;">
+                        <div class="top flex">
+                            <img :src="item.userHeaderImg" alt="" class="head"/> <span>{{item.userNickName}}</span><span style="margin-left: 5px;color: #828282;">{{item.messageCreateTime}}</span>
+                            <button type="button" class="button icon answer-btn" @click="answer(item,index)"
+                                    v-if="identity!=0&&roomStatus!==2"></button>
+                        </div>
+                        <div class="botton flex">
+                            <i class="icon question-icon"></i>
+                            <p>{{item.content}}</p>
+                        </div>
+                    </div>
+                    <!--回复-->
+                    <div class="answer-box" v-if="item.status !=0 && item.answerObj.length">
+                        <div class="top flex">
+                            <img :src="item.answerObj[0].userHeaderImg" alt="" class="head" v-if="item.status == 2"/>
+                            <img src="http://wimg.keepyoga.com/images/sxyLive-zhuchiren.jpg" v-if="item.status == 1" alt="">
+                            <h6 class="name">{{item.answerObj[0].userNickName}}</h6>
+                            <span class="type-zcr type" v-if="item.status == 1">主持人</span>
+                            <span class="type-ls type" v-if="item.status == 2">老师</span>
+                        </div>
+                        <%--<!--回复-->--%>
+                        <div class="text-box ">
+                            <i class="icon answer-icon"></i>
+                            <div v-for="(items,index) in item.answerObj">
+                                <!--文字回复-->
+                                <div class="flex text" v-if="items.dataType == 0">
+                                    <p>{{items.content}}</p>
+                                    <div class="chehui-btn" style="display: none;"></div>
+                                </div>
+                                <%--<!--语音回复-->--%>
+                                <div class="audio-btn-box" v-if="items.dataType == 1">
+                                    <button type="button" class="btn"
+                                            :data-src="items.content" :style="'width:'+items.setAudioBtnW+'rem'" @click="playAudio($event)">
+                                        <img src="http://wimg.keepyoga.com/image/son.png" alt="">
+                                    </button>
+                                    <div class="inline-block audio-time-box">
+                                        <i class="cicle"></i> <span class="audio-time">{{items.time}}"</span>
+                                    </div>
+                                    <div class="chehui-btn" style="display: none;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul></div>
+            <!--学员提问的消息大盒子-->
+            <div class="msg-box absolute all-box-question" :class="{bottom0:roomStatus==2}" id="allBoxQuestion">
+            <ul   >
+                <li class="item" v-for="(item,index) in dataStutent">
+                    <%--学员的消息--%>
+                    <div class="question-box" v-if="item.status == 0 && item.isAsk && !item.answerObj.length">
+                        <div class="top flex">
+                            <img :src="item.userHeaderImg" alt="" class="head" @click="gapSutent(item.userId)"/> <span>{{item.userNickName}}</span> <span style="margin-left: 5px;color: #828282;">{{item.messageCreateTime}}</span>
+                            <button type="button" class="button icon answer-btn" v-if="identity!==0&&item.isAsk&&roomStatus!==2"
+                                    @click="answer(item)"></button>
+                        </div>
+                        <div class="botton flex">
+                            <i class="icon question-icon"></i>
+                            <p>{{item.content}} </p>
+                        </div>
+                    </div>
+                    <%--导师或者管理员针对学员做回复--%>
+                    <div class="question-box" v-if="item.status !=0 && item.answerObj.length" style="padding-bottom: .15rem;">
+                        <div class="top flex">
+                            <img :src="item.userHeaderImg" alt="" class="head"/> <span>{{item.userNickName}}</span><span style="margin-left: 5px;color: #828282;">{{item.messageCreateTime}}</span>
+                            <button type="button" class="button icon answer-btn" @click="answer(item,index)"
+                                    v-if="identity!=0&&roomStatus!==2"></button>
+                        </div>
+                        <div class="botton flex">
+                            <i class="icon question-icon"></i>
+                            <p>{{item.content}}</p>
+                        </div>
+                    </div>
+                    <!--回复-->
+                    <div class="answer-box" v-if="item.status !=0 && item.answerObj.length">
+                        <div class="top flex">
+                            <img :src="item.answerObj[0].userHeaderImg" alt="" class="head" v-if="item.status == 2"/>
+                            <img src="http://wimg.keepyoga.com/images/sxyLive-zhuchiren.jpg" alt="" class="head" v-if="item.status == 1"/>
+                            <h6 class="name">{{item.answerObj[0].userNickName}}</h6>
+                            <span class="type-zcr type" v-if="item.status == 1">主持人</span>
+                            <span class="type-ls type" v-if="item.status == 2">老师</span>
+                        </div>
+                        <%--<!--回复-->--%>
+                        <div class="text-box ">
+                            <i class="icon answer-icon"></i>
+                            <div v-for="(items,index) in item.answerObj">
+                                <!--文字回复-->
+                                <div class="flex text" v-if="items.dataType == 0">
+                                    <p>{{items.content}}</p>
+                                    <div class="chehui-btn" style="display: none;"></div>
+                                </div>
+                                <%--<!--语音回复-->--%>
+                                <div class="audio-btn-box" v-if="items.dataType == 1">
+                                    <button type="button" class="btn"
+                                            :data-src="items.content" :style="'width:'+items.setAudioBtnW+'rem'" @click="playAudio($event)">
+                                        <img src="http://wimg.keepyoga.com/image/son.png" alt="">
+                                    </button>
+                                    <div class="inline-block audio-time-box">
+                                        <i class="cicle"></i> <span class="audio-time">{{items.time}}"</span>
+                                    </div>
+                                    <div class="chehui-btn" style="display: none;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </section>
+    <!--禁言弹出框-->
+    <div class="start-gap-box" id="startGapBox">
+        <div class="gap-box">
+            <i class="icon close"></i>
+            <h1 class="title">全员禁言模式</h1>
+            <p>全员禁言后，全员不能提问</p>
+            <div class="flex group-box">
+                <button type="button" class="cancel">取消</button>
+                <button type="button" class="ok">确认</button>
+            </div>
+        </div>
+    </div>
+    <!--tips-->
+    <div id="tips">
+        <div class="tips flex">
+            <div>
+                <h1>禁言成功</h1>
+            </div>
+        </div>
+    </div>
+    {{identity}}
+    <!--导师消息end-->
+    <!--学员发消息start-->
+    <footer class="student-ask-box absolute" v-if="identity==0&&roomStatus!==2" id="STUTENTTEST">
+        <div class="student-box flex" id="studentBox">
+            <div class="input-box relative" id="inputBox">
+                <%--<div class="input-text" id="inputText" contenteditable="true" style="-webkit-user-select:text;"></div>--%>
+                <textarea class="input-text" id="inputText" contenteditable="true" style="-webkit-user-select:text;" placeholder="提问或发表你的看法"></textarea>
+                <%--<p class="absolute placeholder" id="placeholder">提问或发表你的看法</p>--%>
+                <div class="checked-ask flex absolute" id="checkBox">
+                    <i class="icon" :class="{checked:dataCheck}"></i> <span class="text">提问</span>
+                </div>
+            </div>
+            <button type="button" class="enter-btn" id="enterBtn">发送</button>
+        </div>
+    </footer>
+    <%--透明背景框--%>
+    <div class="transparentBox" @click="hideBox" id="transparentBox"></div>
+    <!--老师输入框和发送语音宽start-->
+    <div class="nost-msg-box none" id="teachAudioBox">
+        <!--学员消息-->
+        <div class="st-msg-box" v-show="isAnswer">
+            <span>{{questionNickname}}：</span>
+            {{questionContent}}
+        </div>
+        <!--语音盒子-->
+        <div class="sed-audio-box" id="sendAudioBox">
+            <h1>长按录音，松开手指，立即发送</h1>
+            <div class="flex djs-box">
+                <img src="${ctx}/resources/images/sxy-live-djsl.png" alt=""/>
+                <div class="djs">
+                    <span id="time">0</span>s : 60s
+                </div>
+                <img src="${ctx}/resources/images/sxy-live-djsr.png" alt=""/>
+            </div>
+            <!--录音按钮-->
+            <div class="keyframesBox">
+                <div id="keyframes"></div>
+            </div>
+            <div class="start-audio-btn flex none" id="recordBox">
+                <div class="start-audio flex">
+                    <i class="icon"></i>
+                </div>
+            </div>
+        </div>
+        <!--文字输入框-->
+        <footer class="student-ask-box none" id="teachText">
+            <div class="student-box flex" id="studentBox">
+                <div class="input-box relative" id="inputBox">
+                    <%--<div class="input-text" id="inputText" contenteditable="true"></div>--%>
+                    <textarea class="input-text" id="inputText" contenteditable="true" placeholder="提问或发表你的看法"></textarea>
+                    <%--<p class="absolute placeholder" id="placeholder">提问或发表你的看法</p>--%>
+                </div>
+
+                <button type="button" class="enter-btn" id="enterBtn">发送</button>
+            </div>
+        </footer>
+    </div>
+    <!--老师输入框和发送语音宽end-->
+    <!--导师和管理员发消息start-->
+    <footer class="send-msg-box flex fixed" id="teachSendBox"
+            v-if="identity!==0&&roomStatus!==2">
+        <div class="yy">
+            <i class="icon"></i> <span>语音</span>
+        </div>
+        <div class="wz">
+            <i class="icon"></i> <span>文字</span>
+        </div>
+        <div class="tp">
+            <i class="icon"></i> <span>图片</span>
+        </div>
+    </footer>
+    <!--导师和管理员发消息end-->
+    <!--audio-->
+    <audio>
+        <source :src="audioSrc" type="audio/ogg">
+        <source :src="audioSrc+'?v=1'" type="audio/ogg">
+    </audio>
+</div>
+
+<script src="${ctx}/resources/js/lib/fastclick.min.js "></script>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript"
+        src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="${ctx}/resources/js/lib/vue.min.js"></script>
+<script src="${ctx}/resources/js/common.js"></script>
+<script>
+    var jspS = {
+        ctx: "${ctx}",
+        userid: "${user.id}",
+        nickname: "${user.nickname}",
+        pic: "${user.file_path}",
+        roomid: "${course.id}",
+        teacherids: "${course.teacherids}",
+        holderids: "${course.holderids}",
+        appid: "${appid}",
+        timestamp: "${timestamp}",
+        nonceStr: "${nonceStr}",
+        signature: "${signature}",
+        roomStatus:${roomStatus}
+    }
+    wx.config({
+        debug: false,
+        appId: '${appid}',
+        timestamp: '${timestamp}',
+        nonceStr: '${nonceStr}',
+        signature: '${signature}',
+        jsApiList: [
+            'checkJsApi', 'openLocation',
+            'getLocation', 'checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage',
+            'onMenuShareQQ', 'onMenuShareWeibo', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem', 'chooseImage', 'previewImage', 'uploadImage', 'startRecord', 'stopRecord', 'closeWindow',
+            'chooseWXPay', 'downloadImage', 'getNetworkType', 'openLocation', 'playVoice', 'pauseVoice', 'stopVoice', 'uploadVoice', 'downloadVoice',
+            'getLocation', 'hideOptionMenu', 'showOptionMenu','onVoiceRecordEnd'
+        ]
+    });
+</script>
+<script src="${ctx}/resources/js/modules/sxy-live.js?v=111"></script>
+</body>
+
+</html>

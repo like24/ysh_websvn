@@ -1,0 +1,309 @@
+html,
+body,
+.wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+.info {
+	width: 100%;
+	background: white;
+	padding-bottom: .6rem;
+	padding-top: .5rem;
+}
+
+.info_1 {
+	padding-top: .2rem;
+	position: relative;
+	height: 2.5rem;
+}
+
+.mainBox .icon {
+	width: 2.5rem;
+	height: 2.5rem;
+	position: absolute;
+	left: 7.725rem;
+	border-radius: 50%;
+}
+
+.follow {
+	width: .875rem;
+	position: absolute;
+	left: 9.375rem;
+	top: 1.8rem;
+}
+
+h4 a {
+	color: #555;
+}
+
+.info_2 {
+	font-size: 18px;
+	text-align: center;
+	margin-top: .7rem;
+	margin-left: 3rem;
+}
+
+span.guanzhu {
+	display: inline-block;
+	font-size: 12px;
+	background: #1d92fb;
+	;
+	width: 2.35rem;
+	height: .9rem;
+	line-height: .9rem;
+	color: #fff;
+	border-radius: 3px;
+	margin-left: .2rem;
+	position: relative;
+	top: -.1rem;
+	padding: 0;
+}
+
+.info_3 {
+	width: 100%;
+	padding-top: .5rem;
+	text-align: center;
+	color: #9c9c9c;
+	font-size: 13px;
+}
+
+.info_4 {
+	width: 90%;
+	margin: 0 auto;
+	font-size: 13px;
+	text-align: left;
+	color: #9c9c9c;
+	padding-top: .925rem;
+	line-height: .9rem;
+}
+
+.content {
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.content {
+	width: 100%;
+	height: 1.7rem;
+	background: #f4f4f4;
+	padding-left: .875rem;
+	line-height: 1.7rem;
+	color: #828282;
+	font-size: 13px;
+}
+
+.list li {
+	background: white;
+	padding: .8rem .425rem;
+	margin-bottom: .625rem;
+}
+
+.list li dl {
+	display: -webkit-box;
+}
+
+.list li dl:nth-child(1) {
+	margin-bottom: .65rem;
+}
+
+.list li dl:nth-child(1) dd {
+	width: 13.5rem;
+	font-size: 14px;
+	line-height: 1.1rem;
+	margin-top: -.1rem;
+}
+
+.list li dl:nth-child(1) dd p {
+	color: red;
+	font-size: 15px;
+}
+
+.list li dl dt img {
+	width: 1.8rem;
+	height: 1.8rem;
+	margin-right: .8rem;
+	margin-left: .5rem;
+	border-radius: 50%;
+}
+
+.iscrollBox {
+	-webkit-transform: translate3d(0, 0, 0);
+}
+
+.content_2 {
+	margin-left: .75rem;
+	padding-top: .3rem;
+	position: relative;
+}
+
+.content_2 span {
+	font-size: 12px;
+	color: #9c9c9c;
+	position: relative;
+	left: .5rem;
+	top: -.1rem;
+}
+
+.content_3 {
+	width: 100%;
+	text-align: center;
+	color: red;
+	font-size: 15px;
+	padding-top: .2rem;
+}
+
+.content_4 {
+	padding-top: .4rem;
+}
+
+.content_1 {
+	width: 13.975rem;
+	height: 3.4rem;
+	margin-left: .75rem;
+	font-size: 13px;
+	color: #3f3f3f;
+	background: #fafafa;
+	border: 1px solid #9c9c9c;
+	border-radius: 5px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	line-height: 1rem;
+	padding-top: .5rem;
+	border-color: #d2d2d2;
+}
+
+.number {
+	position: absolute;
+	right: 1.5rem;
+	top: 2.75rem;
+	color: #9c9c9c;
+	font-size: 13px;
+	z-index: 5;
+}
+
+.hide_or_show {
+	position: relative;
+}
+
+.write {
+	display: block;
+	width: 4.7rem;
+	height: 1.9rem;
+	background: #118eff;
+	text-align: center;
+	line-height: 2.1rem;
+	border-radius: 5px;
+	color: #fff;
+	margin-left: 6.625rem;
+	font-size: 13px;
+	border: none;
+	outline: none;
+}
+
+#pullUp {
+	height: 2.35rem;
+	line-height: 2.4rem;
+	font-size: 14px;
+	color: #888;
+	border-bottom: 1px solid #ccc;
+	background: #f4f4f4;
+}
+
+#pullUp .pullUpIcon {
+	margin-top: .7rem;
+}
+
+#pullUp .pullUpLabel {
+	margin-top: .4rem;
+	margin-left: .1rem;
+}
+
+#list li dl:nth-child(2) dd button {
+	position: relative;
+}
+
+#list li dl:nth-child(2) dd img {
+	width: 1rem;
+	height: 1rem;
+	position: absolute;
+	left: 1rem;
+	top: 50%;
+	margin-top: -.5rem;
+}
+
+.zanwu {
+	width: 100%;
+	position: relative;
+	background: white;
+	text-align: center;
+	padding-bottom: 6rem;
+}
+
+.zanwu img {
+	margin: 1rem 0 1rem 0;
+	width: 3rem;
+	height: 3rem;
+}
+
+.zanwu p {
+	font-size: 15px;
+	color: #9c9c9c;
+}
+
+.content_2 {
+	margin-left: .75rem;
+	padding-top: .3rem;
+	position: relative;
+}
+
+.content_2 span {
+	font-size: 12px;
+	color: #9c9c9c;
+	position: relative;
+	left: -.2rem;
+}
+
+.check {
+	background: url("../images/check.jpg") no-repeat;
+	background-size: contain;
+	width: .775rem;
+	height: .775rem;
+	display: inline-block;
+	position: relative;
+	left: -.5rem;
+	margin-left: .875rem;
+}
+
+b.bg {
+	background: url("../images/checked.jpg") no-repeat;
+	background-size: contain;
+}
+
+#isopen {
+	display: none;
+}
+
+#pullUp {
+	text-align: center;
+}
+
+#noOpen {
+	width: 100%;
+}
+
+#noOpen img {
+	width: 4.45rem;
+	height: 4.45rem;
+	border-radius: 50%;
+	margin: 3rem auto 1rem auto;
+	display: block;
+}
+
+#noOpen p {
+	width: 100%;
+	font-size: 13px;
+	color: #9c9c9c;
+	text-align: center;
+}

@@ -1,0 +1,280 @@
+if(JspElement.nologin == "true") {
+	window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${wxid}&redirect_uri=${ctx}/${urlsecret}/authorize.html&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
+}
+var id = JspElement.zid;
+
+wx.config({
+	debug: false,
+	appId: JspElement.appid,
+	timestamp: JspElement.timestamp,
+	nonceStr: JspElement.nonceStr,
+	signature: JspElement.signature,
+	jsApiList: [
+		'checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage',
+		'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem',
+		'showAllNonBaseMenuItem', 'chooseWXPay', 'hideOptionMenu', 'showOptionMenu'
+	]
+});
+wx.ready(function() {
+	wx.hideAllNonBaseMenuItem();
+	wx.showMenuItems({
+		menuList: ['menuItem:share:appMessage', 'menuItem:share:timeline', 'menuItem:share:qq', 'menuItem:share:weiboApp', 'menuItem:favorite', 'menuItem:share:facebook', 'menuItem:share:QZone'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+	});
+	//自定义标题
+	var title1 = "直播间测试分享标题",
+		link1 = window.location.href,
+		img1 = "http://wimg.keepyoga.com/20170411102355089_367.jpg";
+	wx.onMenuShareTimeline({
+		title: title1, // 分享标题
+		link: link1, // 分享链接
+		imgUrl: img1, // 分享图标
+		success: function(res) {
+			if(res.errMsg == 'shareTimeline:ok') {
+				tips("分享成功");
+			}
+		},
+		cancel: function() {}
+	});
+	wx.onMenuShareAppMessage({
+		title: title1, // 分享标题
+		desc: desc1, // 分享描述
+		link: link1, // 分享链接
+		imgUrl: img1, // 分享图标
+		type: '', // 分享类型,music、video或link，不填默认为link
+		dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+		success: function(res) {
+			if(res.errMsg == 'sendAppMessage:ok') {}
+		},
+		cancel: function() {}
+	});
+});
+
+var vw = new Vue({
+	el: "#app",
+	data: {
+		classList: [], //课程安排
+		detaills: [], //介绍
+		consultPop: false, //客服弹出框
+		myscroll: "",
+		name: "",
+		phone: "",
+		pwd: "",
+		disabledButton: false,
+		money: "",
+		teachs: [],
+		pay: false
+	},
+	methods: {
+		init: function() {
+			var _this = this;
+			//课程安排接口
+			$.post(APP.API_PATH + "live/item/list.json?zhiboId=" + id, function(res) {
+				_this.classList = res.list;
+			}, 'json');
+			$.post(APP.API_PATH + "live/getDetail.json?zhiboId=" + id, function(res) {
+				_this.detaills = res.zhibo;
+				_this.money = res.zhibo.fcbl;
+			}, 'json');
+			$.post(APP.API_PATH + "live/teacher/list.json?zhiboId=" + id, function(res) {
+				_this.teachs = res.list;
+			}, 'json');
+			window.onload = function() {
+				_this.myscroll = new iScroll("mainBox", {
+					vScrollbar: false,
+					bindToWrapper: false,
+					//momentum : false,
+					bounce: true,
+					onScrollLimit: function() {}
+				});
+			}
+		},
+		changeNav: function($event) { //切换导航
+			//获取当前索引
+			var _this = this;
+			var inx = $($event.target).closest('li').index();
+			$("#tab li").removeClass("curr");
+			$(this).addClass("curr");
+			$("#tab div").removeClass("curr");
+			$("#tab div").eq(inx).addClass("curr");
+
+			if(inx == 0) {
+				$("#jieshao").show();
+				$("#anpai").hide();
+			} else if(inx == 2) {
+				$("#jieshao").hide();
+				$("#anpai").show();
+			}
+			vw.myscroll.refresh();
+		},
+		gz: function(tid, followuser, index) { //关注或取消关注
+			var followuser1 = followuser,
+				tid1 = tid,
+				index1 = index,
+				_this = this;
+			$.post("http://wx.keepyoga.com/w/follow/" + tid1 + "/" + followuser1 + ".html", function(res) {
+				if(res.status) {
+					var follow =  _this.teachs[index1].followuser;
+					if(follow) {
+						_this.teachs[index1].followuser = false;
+					} else {
+						_this.teachs[index1].followuser = true;
+					};
+				};
+			}, 'json')
+		},
+		zixun: function() { //点击咨询按钮
+			$('#consultPop').show();
+		},
+		consultPopHide: function() { //关闭客服微信
+			$("#consultPop").hide();
+
+		},
+		getMoney: function() { //赚10元
+			$("#masking").show();
+		},
+		maskingHide: function() { //关闭分享弹框
+			$("#masking").hide();
+		},
+		goShoping: function() { //购买按钮
+			$("#masking2").show();
+			$("#submitBox").animate({
+				bottom: 0
+			}, 500);
+		},
+		masking2Hide: function() { //关闭购买的弹出框
+			$("#submitBox").animate({
+				bottom: '-17rem'
+			}, 500);
+			$("#masking2").hide();
+		},
+		check_phone: function(phone) { //验证是否为手机号
+			var reg = /^0?1[3|4|5|8|7][0-9]\d{8}$/;
+			if(!reg.test(phone)) {
+				return false;
+			}
+			return true;
+		},
+		tips: function(msg) { //实例化tips
+			msg = "<font color='0xFFFFFF'>" + msg + "</font>"
+			layer.open({
+				content: msg,
+				skin: 'msg',
+				time: 2 //2秒后自动关闭
+			});
+		},
+		getpwd: function() {
+			var that = this;
+			if(JspElement.nologin == "true") {
+				window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + JspElement.wxid + "&redirect_uri=" + JspElement.ctx + "/" + JspElement.urlsecre + "authorize.html&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
+				return;
+			}
+			if(this.disabledButton) {
+				that.tips("请勿重复点击!");
+				return;
+			}
+
+			if(this.phone == '') {
+				that.tips("请输入手机号!");
+				return;
+			}
+			if(this.check_phone(phone)) {
+				that.tips("请输入正确的手机号！");
+				return;
+			}
+			this.disabledButton = true;
+			$.ajax({
+				url: JspElement.ctx + '/w/app/distribution/sendcode.html',
+				type: 'post',
+				dataType: "json",
+				data: {
+					'phone': this.phone
+				},
+				async: false,
+				success: function(data) {
+					if(data.status) {
+						that.tips("短信发送成功！");
+					} else {
+						tips("短信发送失败！");
+						that.disabledButton = false;
+					}
+				},
+				error: function(err) {
+					this.tips("短信请求失败！");
+					this.disabledButton = false;
+				}
+			});
+
+			var time = 60;
+			$("#getpwd").html(time);
+			$("#getpwd").css({
+				borderColor: "transparent",
+				left: -40 + "px"
+			});
+			var timer = setInterval(function() {
+				time--;
+				$("#getpwd").html(time).css("color", "red");
+				if(time == 0) {
+					clearInterval(timer);
+					$("#getpwd").html("重新获取");
+					$("#getpwd").css({
+						borderColor: "#07d2ed",
+						left: -120 + "px"
+					});
+					that.disabledButton = false;
+				}
+			}, 1000)
+		},
+		submitBtn: function() { //提交订单
+			if(this.name == "") {
+				this.tips("请输入真实姓名！");
+				return;
+			} else if(this.phone == "") {
+				this.tips("请输入手机号！");
+				return;
+			} else if(!this.check_phone(this.phone)) {
+				this.tips("请输入正确的手机号！");
+				return;
+			} else if(this.pwd == "") {
+				this.tips("请输入验证码");
+				return;
+			} else {
+				return;
+			}
+		},
+
+		weixinPay: function() {
+			wx.ready(function(res) {
+				wx.chooseWXPay({
+					timestamp: JspElement.paytimestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+					nonceStr: JspElement.paynonceStr, // 支付签名随机串，不长于 32 位
+					package: JspElement.paypackage, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+					signType: 'MD5', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+					paySign: JspElement.paySign, // 支付签名
+					success: function(res) {
+						//alert(JSON.stringify(res))
+						// 支付成功后的回调函数
+						if(res.errMsg == 'chooseWXPay:ok') {
+							$("#submitBox").animate({
+								bottom: -17 + "rem"
+							}, 500);
+							Success();
+						} else {
+							$("#submitBox").animate({
+								bottom: -17 + "rem"
+							}, 500);
+							cancle();
+						}
+					},
+					cancel: function(res) {
+						//alert(JSON.stringify(res))
+						$("#submitBox").animate({
+							bottom: -17 + "rem"
+						}, 500);
+						cancle();
+					}
+				});
+			});
+		}
+	}
+})
+vw.init();

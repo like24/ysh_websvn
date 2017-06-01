@@ -1,0 +1,1173 @@
+html {
+	max-width: 1000px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
+#keyframes{
+	width: 2.25rem;
+    height: 2.25rem;
+    background: rgba(46, 195, 168, 0.30);
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.125rem;
+    top: 50%;
+    
+    
+    
+    animation:theanimation 1s infinite alternate; 
+  -webkit-animation:theanimation 1s infinite alternate ; 
+  -moz-animation:theanimation 1s infinite alternate ; 
+  -o-animation:theanimation 1s infinite alternate ; 
+  -ms-animation:theanimation 1s infinite alternate ; 
+}
+/*  #recordBox{animation:theanimation 1s infinite alternate; 
+  -webkit-animation:theanimation 1s infinite alternate ; 
+  -moz-animation:theanimation 1s infinite alternate ; 
+  -o-animation:theanimation 1s infinite alternate ; 
+  -ms-animation:theanimation 1s infinite alternate ; 
+}  */
+@keyframes theanimation{ 
+  from {
+  	padding:.4rem;
+  	margin-left:calc(-1.125rem - 0.2rem);
+  	
+  } 
+  to {padding:0;} 
+} 
+@-webkit-keyframes theanimation{ 
+  from {padding:.4rem;} 
+  to {padding:0;} 
+} 
+@-moz-keyframes theanimation{ 
+  from {padding:.4rem;} 
+  to {padding:0;} 
+} 
+@-o-keyframes theanimation{ 
+ from {padding:.4rem;} 
+  to {padding:0;} 
+} 
+@-ms-keyframes theanimation{ 
+ from {padding:.4rem;} 
+  to {padding:0;} 
+} 
+
+* {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+/*正在加载start*/i
+
+.stash {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	font-size: 18px;
+	line-height: 100%;
+	background-color: white;
+	opacity: 1;
+	text-align: center;
+	color: white;
+	text-shadow: 0px 0px 1px rgba(47, 47, 47, 0.75);
+	z-index: 99999999;
+	transition: all 200ms ease-in-out;
+}
+
+.stash span {
+	position: relative;
+	display: inline-block;
+	top: 50%;
+	height: 24px;
+	margin: 0px;
+	margin-top: -12px;
+	padding: 0px;
+	overflow: hidden;
+	line-height: 24px;
+}
+
+
+/*正在加载end*/
+
+
+/*全员禁言弹出框*/
+
+.start-gap-box {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .8);
+	z-index: 999;
+	display: none;
+}
+
+.start-gap-box .gap-box {
+	width: 80%;
+	height: 3rem;
+	background: white;
+	border-radius: .1rem;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-1.5rem);
+	margin-left: 10%;
+}
+
+.start-gap-box .gap-box .close {
+	background: url(../images/sxy-libe-close-panle.png) no-repeat;
+	background-size: contain;
+	width: .56rem;
+	height: .48rem;
+	position: absolute;
+	right: .24rem;
+	top: .24rem;
+}
+
+.start-gap-box .gap-box .title {
+	width: 100%;
+	text-align: center;
+	font-size: .34rem;
+	color: #252525;
+	line-height: 1.18rem;
+}
+
+.start-gap-box .gap-box p {
+	width: 100%;
+	text-align: center;
+	font-size: .3rem;
+	color: #252525;
+}
+
+.start-gap-box .gap-box .group-box {
+	justify-content: center;
+	margin-top: .37rem;
+}
+
+.start-gap-box .gap-box .group-box button {
+	width: 2.56rem;
+	height: .84rem;
+	background: #2EC4A8;
+	border-radius: 5px;
+	font-size: .34rem;
+	color: #FFFFFF;
+}
+
+.start-gap-box .gap-box button.cancel {
+	background: #C0C0C0;
+	color: #252525;
+	margin-right: .3rem;
+}
+
+.start-gap-box .gap-box button:active {
+	opacity: .8;
+}
+
+
+/*显示隐藏课件start*/
+
+.show-hide-courseware {
+	z-index: 7;
+	right: .25rem;
+	top: 0;
+	width: 1.15rem;
+	height: .88rem;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	border-bottom-left-radius: .1rem;
+	border-bottom-right-radius: .1rem;
+	background: rgba(0, 0, 0, .3);
+}
+
+.show-hide-courseware .icon {
+	width: .28rem;
+	height: .32rem;
+	margin-bottom: .09rem;
+}
+
+.show-hide-courseware .text {
+	font-size: .22rem;
+	color: #FFFFFF;
+}
+
+
+/*显示隐藏课件end*/
+
+
+/*视频播放区域start*/
+
+.video-box,
+.video-palyer-box,
+.video {
+	width: 100%;
+	height: 4.22rem;
+}
+
+.video-img {
+	width: 100%;
+	height: auto;
+}
+
+.video {
+	z-index: 1;
+}
+
+.video-palyer-box {
+	z-index: 2;
+}
+
+.video-play-btn {
+	background: url(../images/video-play.png) no-repeat;
+	background-size: contain;
+	width:1rem;
+	height: 1rem;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	margin:-.5rem -.5rem;
+	z-index: 9;
+}
+.mask{
+	position: absolute;
+	width:100%;
+	height: 4.22rem;
+	left: 0;
+	top:0;
+	background: rgba(0,0,0,.1);
+}
+
+/*视频播放区域end*/
+
+
+/*tips start*/
+
+#tips {
+	display: none;
+}
+
+.tips {
+	width: 100%;
+	justify-content: center;
+	position: fixed;
+	z-index: 999;
+	left: 0;
+	top: 45%;
+}
+
+.tips div {
+	background: rgba(0, 0, 0, .9);
+	padding: 0 .5rem;
+	border-radius: .1rem;
+}
+
+.tips h1 {
+	width: 100%;
+	text-align: center;
+	color: white;
+	line-height: 1rem;
+	font-size: .3rem;
+	letter-spacing: 2px;
+}
+
+
+/*tips end*/
+
+
+/*在线人数start*/
+
+.online-box {
+	left: 0;
+	top: 5.44rem;
+	display: inline-block;
+	padding: .1rem;
+	background: rgba(0, 0, 0, .3);
+	border-radius: 0 100px 100px 0;
+	align-items: center;
+	z-index: 10;
+}
+
+.online-box .icon {
+	width: .3rem;
+	height: .2rem;
+	background: url(../images/sxy-live-len.png) no-repeat;
+	background-size: contain;
+}
+
+.online-box .text {
+	font-size: .24rem;
+	color: #FFFFFF;
+}
+
+
+/*在线人数end*/
+
+
+/*右侧操作按钮start*/
+
+.btn-broup-box {
+	right: .1rem;
+	bottom: 1.1rem;
+	z-index: 9;
+}
+
+.btn-broup-box button {
+	background: none;
+}
+
+.btn-broup-box .btn-box {
+	margin-bottom: .4rem;
+}
+
+.btn-broup-box .btn-box div {
+	width: .92rem;
+	height: .92rem;
+	background: rgba(0, 0, 0, .3);
+	border-radius: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn-broup-box .btn-box-ask .icon {
+	width: .4rem;
+	height: .34rem;
+	background: url(../images/sxy-live-ask.png) no-repeat;
+	background-size: contain;
+}
+
+.btn-broup-box .btn-box-top .icon {
+	width: .34rem;
+	height: .35rem;
+	background: url(../images/sxy-live-gotop.png) no-repeat;
+	background-size: contain;
+}
+
+.btn-broup-box .btn-box-bottom .icon {
+	width: .34rem;
+	height: .35rem;
+	background: url(../images/sxy-live-gobottom.png) no-repeat;
+	background-size: contain;
+}
+
+.btn-broup-box .text {
+	font-size: .22rem;
+	padding-top: .1rem;
+	color: #fff;
+}
+
+.btn-broup-box .ask-size {
+	color: #fff;
+	font-size: .2rem;
+	display: block;
+	padding: .1rem;
+	background: #FF0000;
+	border-radius: 50px;
+	line-height: .1rem;
+	margin-bottom: .1rem;
+}
+
+
+/*右侧操作按钮end*/
+
+
+/*学员发送文字消息start*/
+
+.student-ask-box {
+	left: 0;
+	bottom: 0;
+	z-index: 10;
+	width: 100%;
+	height: auto;
+	background: #fafafa;
+	padding: .15rem 0;
+}
+
+.student-ask-box .placeholder {
+	color: #c6c6c6;
+	font-size: .34rem;
+	top: .26rem;
+	left: .2rem;
+}
+
+.student-ask-box .student-box {
+	margin: 0 .15rem;
+	height: auto;
+	align-items: center;
+}
+
+.student-ask-box .input-box {
+	border: 1px solid #e8e8e8;
+	flex: 1;
+	background: white;
+	border-radius: 5px;
+}
+
+.student-ask-box .enter-btn {
+	width: 1.38rem;
+	height: .8rem;
+	margin-left: .1rem;
+	text-align: center;
+	line-height: .8rem;
+	font-size: .34rem;
+	color: #FFFFFF;
+	background: #E6E6E6;
+	border-radius: 5px;
+	letter-spacing: 2px;
+}
+
+.student-ask-box .enter-btn.curr {
+	background: #2EC4A8;
+}
+
+.student-ask-box .checked-ask {
+	align-items: center;
+	top: 50%;
+	right: .2rem;
+	margin-top: -.2rem;
+}
+
+.student-ask-box .checked-ask .text {
+	font-size: .34rem;
+	color: #838383;
+	margin-left: .1rem;
+}
+
+.student-ask-box .input-text {
+	padding-left: .2rem;
+	width: 4rem;
+	min-height: .5rem;
+	max-height: 2.4rem;
+	font-size: .34rem;
+	color: #252525;
+	padding-top: .28rem;
+	line-height: .36rem;
+	overflow: hidden;
+}
+
+.student-ask-box .icon {
+	width: .4rem;
+	height: .4rem;
+	background: url(../images/sxy-live-check-ask.png) no-repeat;
+	background-size: contain;
+}
+
+.student-ask-box .icon.checked {
+	width: .4rem;
+	height: .4rem;
+	background: url(../images/sxy-live-checked-ask.png) no-repeat;
+	background-size: contain;
+}
+
+
+/*学员发送文字消息end*/
+
+
+/*直播倒计时start*/
+
+.count-down-box {
+	width: 100%;
+	height: 1.1rem;
+	background: #5AD2BD;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.count-down-box p {
+	font-size: .26rem;
+	color: #ACEDE0;
+	margin-bottom: .2rem;
+}
+
+.count-down-box div {
+	font-size: .26rem;
+	color: #ACEDE0;
+}
+
+.count-down-box div span {
+	font-size: .34rem;
+	color: #FFFFFF;
+	margin: .1rem;
+	position: relative;
+	top: .04rem;
+}
+
+
+/*直播倒计时end*/
+
+
+/*关闭直播start*/
+
+.close-live-box {
+	z-index: 7;
+	right: .1rem;
+	top: 1.5rem;
+}
+
+.close-live-box .close-live {
+	width: .9rem;
+	height: .9rem;
+	background: rgba(0, 0, 0, .3);
+	border-radius: 100%;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: .1rem;
+}
+
+.close-live-box .close-live img {
+	width: .45rem;
+}
+
+.close-live-box span {
+	font-size: .22rem;
+	color: #FF812F;
+}
+
+
+/*关闭直播end*/
+
+
+/*老师start*/
+
+.teach-wrapper .item {
+	margin-top: .25rem;
+}
+
+.teach-wrapper {
+	width: 100%;
+	left: 0;
+	right: 0;
+	top: 5.3rem;
+	bottom: 1.1rem;
+	background: #393431;
+	overflow: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.teach-wrapper .head {
+	width: .6rem;
+	height: .6rem;
+	border-radius: 100%;
+	margin: .4rem .18rem 0 .12rem;
+}
+
+.teach-wrapper .name {
+	font-size: .26rem;
+	color: #D4D1CC;
+	display: inline-block;
+}
+
+.teach-wrapper .type,
+.answer-all-wrapper .type {
+	display: inline-block;
+	border: 1px solid #29DCBA;
+	border-radius: 3px;
+	font-size: .22rem;
+	color: #29DCBA;
+	line-height: .24rem;
+	padding: 2px 2px 0 2px;
+	margin-bottom: .12rem;
+}
+
+.teach-wrapper .type-ls,
+.answer-all-wrapper .type-ls {
+	color: #FF812F;
+	border-color: #FF812F;
+}
+
+.teach-wrapper .text-box {
+	display: inline-block;
+	padding: .1rem;
+	background: white;
+	line-height: .4rem;
+	max-width: 4.28rem;
+	border-radius: 5px;
+	font-size: .34rem;
+	color: #252525;
+}
+
+.teach-wrapper .btn {
+	min-width: 1.2rem;
+	max-width: 3.6rem;
+	height: .8rem;
+	background-image: linear-gradient(-180deg, #53F0DE 0%, #29DCBA 100%);
+	border-radius: 10px;
+	position: relative;
+}
+
+.teach-wrapper .btn img {
+	position: absolute;
+	left: .15rem;
+	top: .15rem;
+	width: .5rem;
+	height: .5rem;
+}
+
+.chehui-btn {
+	display: inline-block;
+	width: .46rem;
+	height: .46rem;
+	background: url(../images/sxy-live-mes-chehui.png) no-repeat;
+	background-size: cover;
+	margin: .7rem 0 0 .2rem;
+}
+
+.pic-box img {
+	width: 2rem;
+	height: auto;
+	border-radius: .1rem;
+	box-shadow: 1px 1px 4px #4d4846;
+}
+
+.cicle {
+	width: .2rem;
+	height: .2rem;
+	border-radius: 100%;
+	background: #FF0000;
+	display: block;
+	margin: 0 0 3px 1px;
+}
+
+.audio-time-box {
+	position: relative;
+	left: .2rem;
+	top: -.3rem;
+}
+
+.audio-time {
+	font-size: .28rem;
+	color: #D4D1CC;
+}
+
+.question-text-box span {
+	font-size: .22rem;
+	color: #29DCBA;
+}
+
+.question-text-box {
+	border-bottom: 1px solid #696563;
+}
+
+.question-text-box p {
+	min-width: 1.2rem;
+	max-width: 3.6rem;
+	font-size: .22rem;
+	color: #adaaa6;
+	display: inline-block;
+	line-height: .28rem;
+	padding-bottom: .2rem;
+}
+
+.bj-box {
+	background: #4d4846;
+	padding: .27rem .2rem .2rem .2rem;
+	border-radius: .1rem;
+}
+
+.answer-btn {
+	width: .9rem;
+	height: .5rem;
+	background: url(../images/sxy-live-anser-btn.png) no-repeat;
+	background-size: contain;
+}
+
+.answer-btn:active {
+	background: url(../images/sxy-live-answer-btn-down.png) no-repeat;
+	background-size: contain;
+}
+
+.question-icon {
+	width: .2rem;
+	height: .2rem;
+	background: url(../images/sxy-live-questin.png) no-repeat;
+	background-size: contain;
+	margin-right: .1rem;
+}
+
+.answer-icon {
+	width: .2rem;
+	height: .2rem;
+	background: url(../images/sxy-live-answer.png) no-repeat;
+	background-size: contain;
+	margin-right: .1rem;
+}
+
+.audio-btn-box {
+	margin-bottom: .1rem;
+}
+
+.audio-btn-box:last-child {
+	margin-bottom: 0;
+}
+
+.answer-msg-box {
+	margin-top: .2rem;
+}
+
+
+/*老师end*/
+
+
+/*全部消息start*/
+
+.all-msg-box {
+	left: 0;
+	top: 100%;
+	right: 0;
+	bottom: 0;
+	z-index: 8;
+	width: 100%;
+	height: 100%;
+	background: #f3f3f3;
+	transition: all .5s;
+	overflow: hidden;
+}
+
+.all-msg-box .btn-group-box {
+	width: 100%;
+	height: 1.62rem;
+	background: rgba(0, 0, 0, .8);
+	justify-content: space-around;
+	align-items: center;
+}
+
+.all-msg-box .btn-group-box .btn {
+	width: 2.62rem;
+	height: .82rem;
+	border-radius: 5px;
+	color: white;
+	font-size: .34rem;
+	transition: opacity;
+	.2s;
+}
+
+.all-msg-box .btn-group-box .back {
+	background: #2EC4A8;
+}
+
+.all-msg-box .btn-group-box .gap {
+	background: #F7934A;
+}
+
+.all-msg-box .btn-group-box .back:active {
+	opacity: .8;
+}
+
+.all-msg-box .btn-group-box .gap:active {
+	opacity: .8;
+}
+
+
+/*导航*/
+
+.tab {
+	width: 100%;
+	border-bottom: 1px solid #EBEBEB;
+}
+
+.tab ul {
+	height: .8rem;
+	align-items: center;
+	background: white;
+	justify-content: center;
+}
+
+.tab li,
+.tab span {
+	font-size: .3rem;
+	color: #7D7D7D;
+	transition: all .3s;
+}
+
+.tab li {
+	position: relative;
+}
+
+.tab li::after {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 3rem;
+	height: .8rem;
+	left: -1.5rem;
+	top: -.24rem;
+}
+
+.tab li.right::after {
+	left: -.8rem;
+}
+
+.tab span {
+	margin: 0 1.29rem;
+}
+
+.tab li.curr {
+	color: #41C3A8;
+}
+
+.tab .bottom {
+	width: 0;
+	border-bottom: 2px solid #41C3A8;
+	bottom: 0;
+	left: 20%;
+	transition: all .3s;
+}
+
+.tab .bottom.curr {
+	padding-left: .5rem;
+	padding-right: .5rem;
+}
+
+.tab .bottom1 {
+	width: 0;
+	border-bottom: 2px solid #41C3A8;
+	bottom: 0;
+	right: 19%;
+	transition: all .3s;
+}
+
+.tab .bottom1.curr {
+	padding: 0 .65rem;
+}
+
+.msg-box {
+	width: 100%;
+	top: 2.42rem;
+	bottom: 1.1rem;
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	transition: all .3s;
+}
+
+.msg-box .item {
+	padding: 0 .3rem;
+	background: white;
+	margin-top: .2rem;
+}
+
+.all-box-all {
+	transform: translateX(-100%);
+}
+
+.answer-all-wrapper .question-box .top {
+	height: .5rem;
+	align-items: center;
+	padding: .34rem 0 .16rem 0;
+}
+
+.answer-all-wrapper .question-box .botton p {
+	font-size: .3rem;
+	line-height: .4rem;
+	color: #828282;
+}
+
+.answer-all-wrapper .question-icon {
+	width: 3rem;
+	margin-top: .1rem;
+}
+
+.all-box-question {
+	transform: translateX(100%);
+}
+
+.msg-box .head {
+	width: .4rem;
+	height: .4rem;
+	border-radius: 100%;
+	margin-right: .1rem;
+}
+
+.msg-box .answer-btn {
+	background: url(../images/sxy-live-all-answer.png) no-repeat;
+	background-size: contain;
+}
+
+.msg-box .answer-btn:active {
+	background: url(../images/sxy-live-all-answer-down.png) no-repeat;
+	background-size: contain;
+}
+
+.msg-box .question-box span {
+	font-size: .24rem;
+	color: #2EC4A8;
+	flex: 1;
+}
+
+.answer-all-wrapper .answer-box {
+	border-top: 1px solid #EBEBEB;
+	margin-top: .23rem;
+	padding-bottom: .3rem;
+}
+
+.answer-all-wrapper .answer-box .top {
+	height: .4rem;
+	align-items: center;
+	margin-bottom: .12rem;
+	padding-top: .2rem;
+}
+
+.answer-all-wrapper .answer-box .top .name {
+	font-size: .26rem;
+	color: #7D7D7D;
+	display: inline-block;
+	margin-right: .1rem;
+}
+
+.answer-all-wrapper .type {
+	position: relative;
+	top: .05rem;
+}
+
+.answer-all-wrapper .answer-icon {
+	width: .2rem;
+	height: .2rem;
+	background: url(../images/sxy-live-answer.png) no-repeat;
+	background-size: contain;
+	position: absolute;
+}
+
+.answer-all-wrapper .answer-icon+* {
+	margin-left: .4rem;
+}
+
+.answer-all-wrapper .text-box .text {
+	margin-bottom: .2rem;
+}
+
+.answer-all-wrapper .text-box .text .chehui-btn {
+	margin: 0;
+	margin-left: .2rem;
+}
+
+.answer-all-wrapper .text-box p {
+	font-size: .3rem;
+	color: #252525;
+	max-width: 5.9rem;
+	line-height: .4rem;
+}
+
+.answer-all-wrapper .chehui-btn {
+	margin-left: .2rem;
+}
+
+.answer-all-wrapper .audio-btn-box .btn {
+	min-width: 1.2rem;
+	max-width: 3.6rem;
+	height: .8rem;
+	background-image: linear-gradient(-180deg, #53F0DE 0%, #29DCBA 100%);
+	border-radius: 10px;
+	position: relative;
+}
+
+.answer-all-wrapper .audio-btn-box .btn img {
+	position: absolute;
+	left: .15rem;
+	top: .15rem;
+	width: .5rem;
+	height: .5rem;
+}
+
+.answer-all-wrapper .audio-btn-box .audio-time-box {
+	position: relative;
+	left: .2rem;
+	top: -.3rem;
+}
+
+.answer-all-wrapper .audio-btn-box .chehui-btn {
+	position: relative;
+	top: -.1rem;
+}
+
+
+/*全部消息end*/
+
+
+/*导师发消息*/
+
+.send-msg-box {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: .96rem;
+	background: white;
+	z-index: 99;
+	justify-content: space-around;
+	align-items: center;
+	border-top: 1px solid #E8E8E8;
+}
+
+.send-msg-box span {
+	font-size: .3rem;
+	color: #838383;
+}
+
+.send-msg-box .icon {
+	display: inline-block;
+	margin-right: .1rem;
+}
+
+.send-msg-box div {
+	height: .96rem;
+	width: calc(100%/3);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.send-msg-box.w50 div {
+	width: 50%;
+}
+
+.send-msg-box div.curr span {
+	color: #2EC4A8;
+	;
+}
+
+.send-msg-box .yy .icon {
+	width: .29rem;
+	height: .46rem;
+	background: url(../images/sxy-live-msg-yy.png) no-repeat;
+	background-size: contain;
+}
+
+.send-msg-box .yy.curr .icon {
+	width: .29rem;
+	height: .46rem;
+	background: url(../images/sxy-live-msg-yy-curr.png) no-repeat;
+	background-size: contain;
+}
+
+.send-msg-box .wz {
+	border-left: 1px solid #E8E8E8;
+	border-right: 1px solid #E8E8E8;
+}
+
+.send-msg-box .wz .icon {
+	width: .4rem;
+	height: .27rem;
+	background: url(../images/sxy-live-msg-jp.png) no-repeat;
+	background-size: contain;
+}
+
+.send-msg-box .wz.curr .icon {
+	width: .4rem;
+	height: .27rem;
+	background: url(../images/sxy-live-msg-jp-curr.png) no-repeat;
+	background-size: contain;
+}
+
+.send-msg-box .tp .icon {
+	width: .41rem;
+	height: .33rem;
+	background: url(../images/sxy-live-msg-tp.png) no-repeat;
+	background-size: contain;
+}
+
+.send-msg-box .tp.curr .icon {
+	width: .41rem;
+	height: .33rem;
+	background: url(../images/sxy-live-msg-tp-curr.png) no-repeat;
+	background-size: contain;
+}
+
+
+/*消息框*/
+
+.nost-msg-box {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: .96rem;
+	background: white;
+	padding-bottom: .5rem;
+}
+.sed-audio-box {
+	height: 4.5rem;
+    position: relative;
+}
+.sed-audio-box h1 {
+	width: 100%;
+	height: 1rem;
+	text-align: center;
+	line-height: 1rem;
+	background: #2EC4A8;
+	font-size: .34rem;
+	color: #FFFFFF;
+}
+
+.sed-audio-box .start-audio-btn {
+	width: 2.25rem;
+    height: 2.25rem;
+    background: rgba(46, 195, 168, 0.30);
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -1.125rem;
+}
+
+.sed-audio-box .djs-box {
+	justify-content: center;
+	height: 1rem;
+	align-items: center;
+}
+
+.sed-audio-box .djs-box img {
+	width: .8rem;
+	height: .2rem;
+}
+
+.sed-audio-box .start-audio {
+	width: 2.15rem;
+	height: 2.15rem;
+	border-radius: 100%;
+	background: #2EC4A8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.sed-audio-box .start-audio img {
+	width: .67rem;
+	height: 1.07rem;
+}
+
+.sed-audio-box .djs {
+	font-size: .34rem;
+	color: #2EC4A8;
+	padding: 0 .3rem;
+}
+
+.st-msg-box {
+	padding: .2rem .3rem;
+	font-size: .24rem;
+	color: #7d7d7d;
+	line-height: .32rem;
+}
+
+.st-msg-box span {
+	color: #2EC4A8;
+}

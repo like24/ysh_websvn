@@ -1,0 +1,127 @@
+package com.yoga.controller.v2.websocket;
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArraySet;
+
+import javax.websocket.OnClose;
+import javax.websocket.OnError;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+import javax.websocket.server.PathParam;
+import javax.websocket.server.ServerEndpoint;
+import org.apache.log4j.Logger;
+
+/**
+ * 课程直播间
+ * @author huzh
+ *
+ */
+@ServerEndpoint(value = "/ws/coursechat/{roomId}/{nickName}")
+public class CourseChat {
+	
+	private final static Logger LOG = Logger.getLogger(CourseChat.class);
+	
+	/**
+	 * 连接对象集合
+	 */
+//	private static final Set<Chat> connections = new CopyOnWriteArraySet<Chat>();
+	private static final Map<String,Set<CourseChat>> connections = new ConcurrentHashMap<>();
+	private String nickName;
+
+	/**
+	 * WebSocket Session
+	 */
+	private Session session;
+
+	public CourseChat() {
+	}
+
+	/**
+	 * 打开连接
+	 *
+	 * @param session
+	 * @param nickName
+	 */
+	@OnOpen
+	public void onOpen(Session session,
+					   @PathParam(value = "nickName") String nickName, @PathParam("roomId") String roomId) {
+
+		this.session = session;
+		this.nickName = nickName;
+//		Map<String,Chat> room = new HashMap<>();
+//		connections.add(this);
+		Set<CourseChat> room = connections.get(roomId);
+		if (null == room){
+			room = new CopyOnWriteArraySet<>();
+			room.add(this);
+			connections.put(roomId,room);
+		}
+		String message = String.format("System> %s %s", this.nickName,
+				" has joined.");
+		CourseChat.broadCast(roomId,message);
+	}
+
+	/**
+	 * 关闭连接
+	 */
+	@OnClose
+	public void onClose(@PathParam("roomId") String roomId) {
+		
+		connections.get(roomId).remove(this);
+		String message = String.format("System> %s, %s", this.nickName,
+				" has disconnection.");
+		CourseChat.broadCast(roomId, message);
+	}
+
+	/**
+	 * 接收信息
+	 *
+	 * @param message
+	 * @param nickName
+	 */
+	@OnMessage
+	public void onMessage(String message,
+						  @PathParam(value = "nickName") String nickName,@PathParam("roomId") String roomId) {
+		CourseChat.broadCast(roomId, nickName + ">" + message);
+	}
+
+	/**
+	 * 错误信息响应
+	 *
+	 * @param throwable
+	 */
+	@OnError
+	public void onError(Throwable throwable) {
+		System.out.println(throwable.getMessage());
+	}
+
+
+	/**
+	 * 发送或广播信息
+	 *
+	 * @param roomId
+	 * @param message
+	 */
+	private static void broadCast(String roomId, String message) {
+		Set<CourseChat> room = connections.get(roomId);
+		for (CourseChat chat : room) {
+			try {
+				synchronized (chat) {
+					chat.session.getBasicRemote().sendText(message);
+				}
+			} catch (IOException e) {
+				connections.remove(chat);
+				try {
+					chat.session.close();
+				} catch (IOException e1) {
+				}
+				CourseChat.broadCast(roomId, String.format("System> %s %s", chat.nickName,
+						" has bean disconnection."));
+			}
+		}
+	}
+}

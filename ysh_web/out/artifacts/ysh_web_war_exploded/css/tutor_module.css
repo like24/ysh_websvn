@@ -1,0 +1,97 @@
+.nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 4;
+    background: #f4f4f4;
+}
+
+.main {
+    padding-top: 3.3rem;
+}
+
+.search {
+    position: absolute;
+    right: .85rem;
+    top: 1.2rem;
+}
+
+.search img {
+    width: .925rem;
+}
+
+.list {
+    width: 100%;
+    height: 100%;
+}
+
+.list li {
+    width: 100%;
+    background: white;
+    /* border-bottom: 1px solid #E8E8E8; */
+    position: relative;
+    margin-bottom: .625rem;
+}
+
+.list li div {
+    width: 13.2rem;
+    padding: 0 .628rem;
+}
+
+.list li div dl {
+    width: 100%;
+    padding: .75rem 0;
+    display: -webkit-box;
+}
+
+.list li div dl dt {
+    width: 2.375rem;
+    margin-right: 1rem;
+}
+
+.list li div dl dt img {
+    width: 2.375rem;
+    height: 2.375rem;
+    border-radius: 50%;
+    position: absolute;
+    left: .7rem;
+    top: 50%;
+    margin-top: -1.188rem;
+}
+
+.list li div dl dd {
+    width: 100%;
+}
+
+.list li div dl dd h4 a {
+    font-size: 15px;
+    color: #3f3f3f;
+}
+
+.list li div dl dd h5 {
+    margin: .25rem 0 .25rem 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list li div dl dd h5 a {
+    font-size: 14px;
+    color: #3f3f3f;
+}
+
+.list li div dl dd p span {
+    margin: 0 .5rem 0 0;
+    font-size: 13px;
+}
+
+
+/*下拉加载开始*/
+
+#pullUp {
+    text-align: center;
+}
+
+
+/*下拉加载结束*/

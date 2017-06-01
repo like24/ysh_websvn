@@ -1,0 +1,797 @@
+/*公共样式开始*/
+
+.mainBox>div.iscrollBox {
+    padding: 0;
+}
+
+.iscrollBox {
+    position: relative;
+    width: 100%;
+}
+
+.audioMask {
+    width: 100%;
+    height: 10rem;
+    background: black;
+    position: absolute;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    opacity: .3;
+}
+
+.mainBox #video {
+    width: 100%;
+    height: 10rem;
+    display: block;
+    background-image: url("../images/video.jpg");
+    background-size: 100%;
+}
+
+.mainBox #audio {
+    width: 100%;
+    height: 10rem;
+    background: url("../images/audio.jpg");
+    background-size: 100%;
+}
+
+.skill {
+    width: 100%;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fff;
+    padding-bottom: .6rem;
+}
+
+.skill p {
+    width: 76%;
+    padding-top: 0.9rem;
+    font-size: 15px;
+    color: #3f3f3f;
+    position: relative;
+    margin-left: .825rem;
+}
+
+.skill p span {
+    font-size: 15px;
+    color: #1d92fc;
+    position: absolute;
+    right: -2.5rem;
+    top: 1rem;
+}
+
+.skill b {
+    display: inline-block;
+    color: #fff;
+    background: #c0c0c0;
+    margin-top: 0.5rem;
+    margin-left: 0.3rem;
+    border-radius: 3px;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 2px 4px;
+}
+
+.skill div.but {
+    margin-left: 3.3%;
+    margin-right: 2%;
+}
+
+.buy {
+    width: 100%;
+    height: 2.45rem;
+    background: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.buy span {
+    margin-top: 0.6rem;
+    display: inline-block;
+    width: 3rem;
+    height: 1.175rem;
+    text-indent: 1.3rem;
+    line-height: 1.1rem;
+    font-size: 13px;
+}
+
+.buy span:nth-of-type(2) {
+    line-height: 1.3rem;
+    background: url(../images/collect.jpg) no-repeat 14%;
+    background-size: 24%;
+    color: #9c9c9c;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+
+.buy span:nth-of-type(1) {
+    line-height: 1.3rem;
+    margin-left: .825rem;
+    background: url(../images/share.jpg) no-repeat 12%;
+    background-size: 25%;
+    color: #9c9c9c;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    margin-right: .4rem;
+}
+
+div.buy span.high {
+    text-align: center;
+    background: #c0c0c0;
+    color: white;
+    text-indent: 0;
+}
+
+.buy button {
+    width: 4.95rem;
+    height: 1.7rem;
+    margin-left: 4.4rem;
+    color: #fff;
+    background: #1d92fb;
+    border: 0;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.content {
+    width: 100%;
+    background: white;
+}
+
+.content nav {
+    width: 100%;
+    height: 2.35rem;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fff;
+}
+
+.content nav ul {
+    margin-left: 5%;
+    height: 2.2rem;
+    font-size: 14px;
+}
+
+.content nav ul li {
+    width: 4.4rem;
+    float: left;
+    height: 100%;
+    text-align: center;
+    line-height: 2.2rem;
+}
+
+.content nav ul li a {
+    color: #3f3f3f;
+}
+
+.content nav ul li.high {
+    color: #1d92fb;
+    border-bottom: 3px solid #1d92fb;
+}
+
+.content nav ul li.high a {
+    color: #1d92fb;
+}
+
+dl dt img {
+    border-radius: 50%;
+}
+
+
+/*公共样式结束*/
+
+
+/*介绍开始*/
+
+.content .jieshao h1 {
+    padding: 0.825rem 5%;
+    font-size: 14px;
+    background: #fff;
+    margin-left: -.35rem;
+}
+
+.content .jieshao dl {
+    width: 96%;
+    padding-left: 4%;
+    background: #fff;
+    height: 1.85rem;
+    color: #000;
+    display: -webkit-box;
+}
+
+.content .jieshao dl dt {}
+
+.content .jieshao dl dd {
+    /* margin-left: .9rem; */
+    line-height: 1.85rem;
+    -webkit-box-flex: 1;
+    margin-right: .875rem;
+}
+
+.content .jieshao dl dd p {
+    font-size: 13px;
+    color: #a3a3a3;
+    line-height: 1.85rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.content .jieshao dl dd p span {
+    font-size: 15px;
+    color: #3f3f3f;
+    /* margin-left: -.1rem; */
+    margin-right: .5rem;
+}
+
+.jieshao .ctent {
+    width: 90%;
+    padding: 0 5%;
+    background: #fff;
+    padding-top: 0.7rem;
+    line-height: 20px;
+    font-size: 13px;
+    color: ##555;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.jieshao .course {
+    width: 90%;
+    height: auto;
+    background: #fff;
+    padding: 0 5%;
+    line-height: 1rem;
+    padding-bottom: 1rem;
+    font-size: 13px;
+}
+
+.jieshao .course p {
+    color: #9c9c9c;
+}
+
+.jieshao .course p.course_description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+
+.jieshao dt img {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-right: .2rem;
+}
+
+
+/*介绍结束*/
+
+
+/*介绍开始*/
+
+.content .pingjia form {
+    width: 100%;
+    height: 1.95rem;
+    margin-top: .75rem;
+}
+
+.content .pingjia form input {
+    width: 12.95rem;
+    height: 1.9rem;
+    border-radius: 4px;
+    margin: 0 .1rem 0 .83rem;
+    border: 1px solid #D2D2D2;
+    text-indent: 1rem;
+    font-size: 13px;
+    color: #3f3f3f;
+    line-height: 1.9rem;
+}
+
+.content .pingjia form button {
+    font-size: 13px;
+    width: 3rem;
+    height: 2rem;
+    border-radius: 4px;
+    background: #c0c0c0;
+    border: none;
+    color: white;
+}
+
+.pingjia .list {
+    width: 100%;
+}
+
+.pingjia .list li {
+    margin-top: .75rem;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: .5rem;
+}
+
+.pingjia .list li dl {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    width: 100%;
+    height: 1.8rem;
+}
+
+.pingjia .list li dl dt {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: 0 .7rem 0 .5rem;
+}
+
+.pingjia .list li dl dt img {
+    width: 100%;
+    height: 100%;
+}
+
+.pingjia .list li dl dd h3 a {
+    line-height: 1.8rem;
+    font-size: 16px;
+    color: #3f3f3f;
+}
+
+.pingjia .list li div {
+    margin: 0 .85rem;
+}
+
+.pingjia .list li div h4 {
+    width: 100%;
+    font-size: 14px;
+    color: #3f3f3f;
+    margin: .8rem 0;
+    line-height: 1rem;
+}
+
+.pingjia .list li div p {
+    color: #9c9c9c;
+    font-size: 13px;
+}
+
+
+/*介绍结束*/
+
+
+/*下拉加载开始*/
+
+#pullUp {
+    text-align: center;
+    line-height: 2.6rem;
+    background: #f4f4f4;
+}
+
+
+/*下拉加载结束*/
+
+
+/*无数据页面开始*/
+
+.pingjia .zanwu {
+    width: 100%;
+    height: 13rem;
+    position: relative;
+    background: white;
+    text-align: center;
+}
+
+.pingjia .zanwu img {
+    margin: 3rem 0 1rem 0;
+    width: 3rem;
+    height: 3rem;
+}
+
+.zanwu p {
+    font-size: 15px;
+    color: #9c9c9c;
+    margin-bottom: 100%;
+}
+
+
+/*无数据页面结束*/
+
+#mainBox {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 2.35rem;
+    overflow: hidden;
+}
+
+.Box {
+    width: 100%;
+    height: 100%;
+}
+
+.content .zanwu {
+    width: 100%;
+    position: relative;
+    background: white;
+    text-align: center;
+    padding-bottom: 6rem;
+}
+
+.content .zanwu img {
+    margin: 3rem 0 1rem 0;
+    width: 3rem;
+    height: 3rem;
+}
+
+.zanwu p {
+    font-size: 15px;
+    color: #9c9c9c;
+}
+
+#noshop button.btnright {
+    position: absolute;
+    left: 0;
+    margin-left: 1.1rem;
+}
+
+#noshop button.btnleft {
+    position: absolute;
+    right: 0;
+}
+	.catalog {
+			width: 100%;
+			padding-bottom:2rem;
+		}
+		
+		.catalog {
+			margin-top: 1.125rem;
+		}
+		
+		.catalog li {
+			color: #9c9c9c;
+			font-size: 13px;
+			margin-bottom: 1.75rem;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			width: 96%;
+		}
+		
+		.catalog li:last-child {
+			margin-bottom: .625rem;
+		}
+		
+		.catalog li i {
+			display: inline-block;
+			background: url("/images/catalog1.png") no-repeat;
+			background-size: contain;
+			width: .5rem;
+			height: .5rem;
+			margin: 0 .8rem 0 .625rem;
+		}
+		
+		.catalog li.high i {
+			background: url("/images/catalog.png") no-repeat;
+			background-size: contain;
+		}
+		
+		.catalog li.high {
+			color: #1d92fb;
+		}
+		
+		.audio_video {
+			position: relative;
+		}
+		
+		#video_play {
+			display: block;
+			width: 2rem;
+			height: 1.5rem;
+			position: absolute;
+			z-index: 99;
+			left: 0;
+			top: 8.5rem;
+		}
+		
+		#keybox {
+			width: 14.25rem;
+			height: 15rem;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			background: white;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -7.125rem;
+			margin-top: -7.5rem;
+			z-index: 11;
+			display: none;
+		}
+		
+		#keybox span {
+			color: #63abfc;
+			position: absolute;
+			top: 7.85rem;
+			left: 50%;
+			width: 100px;
+			margin-left: -50px;
+			text-align: center;
+			font-size: 15px;
+		}
+		
+		#keybox p {
+			width: 11.425rem;
+			font-size: 15px;
+			color: #ababab;
+			position: absolute;
+			left: 50%;
+			margin-left: -5.71rem;
+			top: 8.875rem;
+			line-height: 1.2rem;
+		}
+		
+		#keybox h4 {
+			color: #3f3f3f;
+			font-size: 15px;
+			position: absolute;
+			left: 1.2rem;
+			top: 1.625rem;
+		}
+		
+		#keybox b {
+			background: url("../images/close.jpg") no-repeat;
+			background-size: contain;
+			width: .9rem;
+			height: .8rem;
+			position: absolute;
+			top: .5rem;
+			right: .5rem;
+		}
+		
+		#keybox input {
+			position: absolute;
+			left: 1.2rem;
+			top: 3.1rem;
+			font-size: 14px;
+			line-height: 14px;
+			width: 11.6rem;
+			height: 1.625rem;
+			text-indent: 1rem;
+			outline: none;
+			border: 1px solid #ccc;
+		}
+		
+		#keybox button {
+			position: absolute;
+			left: 50%;
+			margin-left: -2.5rem;
+			top: 5.6rem;
+			font-size: 15px;
+			background: #9c9c9c;
+			padding: .5rem 1.825rem;
+			color: white;
+			border: none;
+			outline: none;
+			border-radius: 3px;
+		}
+		
+		#keybox a {
+			color: #63abfc;
+			text-decoration: underline;
+		}
+		
+		.keymask {
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, .5);
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 10;
+			display: none;
+		}
+		
+		.click-audio {
+			width: 100%;
+			height: 10rem;
+			background: red;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 12;
+		}
+		
+		#noshop {
+			width: 16rem;
+			margin-left: -8rem;
+		}
+		
+		.audio_video {
+			width: 100%;
+			height: 10rem;
+			background: url("../images/audio.jpg") no-repeat;
+			background-size: 100%;
+		}
+		
+		.audio_style {
+			width: 100%;
+			height: 100%;
+			background: url("../images/player.png") no-repeat;
+			background-position: center center;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-size: 30%;
+			z-index: 999999;
+		}
+		
+		.pause {
+			width: 100%;
+			height: 100%;
+			background: url("../images/pause.png") no-repeat;
+			background-position: center center;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-size: 30%;
+			z-index: 999999;
+		}
+		.audio_video {
+			width: 100%;
+			height: 10rem;
+			background: url("../images/audio.png") no-repeat;
+			background-size: 100%;
+		}
+		
+		.audio_style {
+			width: 100%;
+			height: 100%;
+			background: url("../images/player.png") no-repeat;
+			background-position: center center;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-size: 20%;
+			z-index: 999999;
+		}
+		
+		.pause {
+			width: 100%;
+			height: 100%;
+			background: url("../images/pause.png") no-repeat;
+			background-position: center center;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-size: 30%;
+			z-index: 999999;
+		}
+		
+		.controlBox {
+			width: 100%;
+			height: 50px;
+			background: rgba(23, 21, 21, 0.6);
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			z-index: 99;
+			visibility: hidden;
+		}
+		
+		#play_pause {
+			width: 2rem;
+			height: 2rem;
+			position: absolute;
+			left: .5rem;
+			top: .2rem;
+		}
+		
+		.play-pause {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -.412rem;
+			margin-top: -.35rem;
+			background: url("../images/audio_video_play.png") no-repeat;
+			width: .825rem;
+			height: 1.025rem;
+			background-size: contain;
+		}
+		
+		.play-pause-pause {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -.412rem;
+			margin-top: -.35rem;
+			background: url("../images/audio_video_paush.png") no-repeat;
+			width: .825rem;
+			height: 1.025rem;
+			background-size: contain;
+		}
+		
+		.audio-video-mask-play {
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, .5);
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 3;
+		}
+		
+		.fullScreen {
+			position: absolute;
+			right: 0.2rem;
+			top: 50%;
+			margin-top: -6px;
+			color: white;
+		}
+		
+		.progressBar {
+			width: 50%;
+			height: 10px;
+			margin: 30px auto 30px auto;
+			position: absolute;
+			left: 5.4rem;
+			top: -10%;
+		}
+		
+		.progressBar div {
+			position: absolute;
+			top: 50%;
+		}
+		
+		.progressBar .progressBac {
+			width: 100%;
+			height: 5px;
+			left: 0;
+			top: 0;
+			background: #e4e4e4;
+			border-radius: 5px;
+		}
+		
+		.progressBar .speed {
+			width: 0;
+			height: 5px;
+			left: -100%;
+			background: #3D90D8;
+			position: absolute;
+			left: 0;
+			top: 0;
+			border-radius: 5px;
+		}
+		
+		.progressBar .drag {
+			width: 40px;
+			height: 40px;
+			left: 0;
+			top: -20px;
+			margin-left: -20px;
+			position: relative;
+		}
+		
+		.progressBar .drag>div {
+			width: 16px;
+			height: 16px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -8px;
+			border-radius: 50%;
+			margin-top: -6px;
+			background: #CACACA;
+			opacity: .7;
+			box-shadow: #fff 0 0 5px;
+		}
+		
+		.long-time {
+			position: absolute;
+			right: 1rem;
+			top: 50%;
+			margin-top: -6px;
+			color: white;
+		}
+		
+		.now-time {
+			position: absolute;
+			top: 50%;
+			left: 3rem;
+			margin-top: -6px;
+			color: white;
+		}
+		

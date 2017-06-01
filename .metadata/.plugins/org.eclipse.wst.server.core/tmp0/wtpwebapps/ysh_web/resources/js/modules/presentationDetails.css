@@ -1,0 +1,36 @@
+#app{
+	background: #f3f3f3;
+}
+.space-between{
+	justify-content: space-between;
+	align-items: center;
+	
+}
+.space-between>*{
+	width:40%;
+	text-align: center;
+}
+.header{
+	width:100%;
+	height: .8rem;
+	 border-bottom: 1px solid #DFDFDF;
+	 background: #F7F7F7;
+	 font-size: .28rem;
+	 color: #7D7D7D;
+}
+time{
+	 font-size: .28rem;
+	 color: #7D7D7D;
+}
+section .item{
+	height: 1rem;
+	background: white;
+	border-bottom: 1px solid #F3F3F3;
+}
+section .item span{
+	font-size: .26rem;
+color: #252525;
+}
+big{
+	font-size: .48rem;
+}

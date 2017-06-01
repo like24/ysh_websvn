@@ -1,0 +1,188 @@
+html,
+body,
+.wrapper {
+    overflow: hidden;
+}
+
+.info {
+    width: 100%;
+}
+
+.info_1 {
+    padding-top: .7rem;
+    position: relative;
+    height: 2.5rem;
+}
+
+.mainBox .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    left: 7.725rem;
+    border-radius: 50%;
+}
+
+.follow {
+    width: .875rem;
+    height: .875rem;
+    position: absolute;
+    left: 9.375rem;
+    top: 2.3rem;
+    border-radius: 50%;
+}
+
+.info_2 {
+    font-size: 18px;
+    text-align: center;
+    margin-top: .7rem;
+    margin-left: 3rem;
+}
+
+span.guanzhu {
+    display: inline-block;
+    font-size: 12px;
+    background: #9c9c9c;
+    width: 2.35rem;
+    height: .9rem;
+    line-height: .9rem;
+    color: #fff;
+    border-radius: 3px;
+    margin-left: .2rem;
+    position: relative;
+    top: -.1rem;
+}
+
+.info_3 {
+    width: 100%;
+    padding-top: .5rem;
+    text-align: center;
+    color: #9c9c9c;
+    font-size: 13px;
+}
+
+.info_4 {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 13px;
+    text-align: left;
+    color: #9c9c9c;
+    padding-top: .925rem;
+    line-height: .9rem;
+}
+
+.content {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.white {
+    background: white;
+    padding-bottom: .3rem;
+}
+
+.content h3 {
+    height: 1.75rem;
+    background: #F4F4F4;
+    line-height: 1.75rem;
+    padding-left: 0.95rem;
+    color: #9C9C9C;
+    font-size: 13px;
+}
+
+.content ol li h1 {
+    padding: 0.9rem 0 0.6rem 0.95rem;
+    font-size: 15px;
+    font-weight: normal;
+    color: #3f3f3f;
+}
+
+.content h4 {
+    height: 0.55rem;
+    background: #F4F4F4;
+    margin-top: 0.7rem;
+}
+
+.content ol .content ol li h1 p {
+    color: #9C9C9C;
+    width: 90%;
+    margin-left: 5%;
+    line-height: 1rem;
+    font-size: 13px;
+}
+
+.content ol>li {
+    margin-bottom: .6rem;
+    background: white;
+    padding-bottom: .7rem;
+}
+
+.content ol li ul {
+    margin: .7rem .95rem 0 .95rem;
+}
+
+#list li p {
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 13px;
+    color: #9c9c9c;
+}
+
+.content ol li ul li {
+    display: inline-block;
+    background: #C0C0C0;
+    margin-right: 0.2rem;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-bottom: .4rem;
+    line-height: 12px;
+    padding: 2px 4px;
+}
+
+#pullUp {
+    text-align: center;
+}
+
+.iscrollBox #pullUp .pullUpLabel {
+    margin-left: .5rem;
+}
+
+.mainBox .zanwu {
+    width: 100%;
+    position: relative;
+    background: white;
+    text-align: center;
+    padding-bottom: 6rem;
+}
+
+.mainBox .zanwu img {
+    margin: 3rem 0 1rem 0;
+    width: 3rem;
+    height: 3rem;
+}
+
+.mainBox .zanwu p {
+    font-size: 15px;
+    color: #9c9c9c;
+}
+#pullUp {
+    text-align: center;
+}
+#noOpen {
+	width: 100%;
+}
+#noOpen img {
+	width: 4.45rem;
+	height: 4.45rem;
+	border-radius: 50%;
+	margin: 3rem auto 1rem auto;
+	display: block;
+}
+		
+#noOpen p {
+	width: 100%;
+	font-size: 13px;
+	color: #9c9c9c;
+	text-align: center;
+}

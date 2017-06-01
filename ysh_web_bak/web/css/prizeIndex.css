@@ -1,0 +1,74 @@
+html,
+body,
+.wrapper {
+	width: 100%;
+	height: 100%;
+	background: #f4f4f4;
+	overflow: hidden;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+button {
+	width: 86%;
+	height: 2.1rem;
+	outline: none;
+	border: none;
+	border-radius: 2rem;
+	background: #eb4f39;
+	position: fixed;
+	left: 7%;
+	bottom: 0.7rem;
+	
+}
+/* 
+button.high {
+	display: block;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-animation: start .8s ease-in-out alternate;
+	-webkit-animation: start .8s ease-in-out alternate;
+	animation: start .8s ease-in-out alternate;
+}
+
+@-webkit-keyframes start {
+	0% {
+		display: none;
+		-webkit-transform: scale(0);
+	}
+	80% {
+		-webkit-transform: scale(1.2);
+	}
+	100% {
+		-webkit-transform: scale(1);
+	}
+}
+
+@keyframes start {
+	0% {
+		-webkit-transform: scale(0);
+		display: none;
+	}
+	80% {
+		-webkit-transform: scale(1.2);
+	}
+	100% {
+		-webkit-transform: scale(1);
+	}
+}
+ */
+button b,
+button span {
+	color: white;
+	font-size: .8rem;
+	font-weight: bolder;
+	margin-right: .5rem;
+	letter-spacing: 1px;
+}
+
+button span {
+	font-weight: normal;
+}

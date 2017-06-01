@@ -1,0 +1,119 @@
+.wrapper{
+	position:relative;
+}
+.main {
+	
+	-webkit-overflow-scrolling: touch;
+	position:absolute;
+	left:0;
+	top:0;
+	right:0;
+	bottom:2.35rem;
+	overflow-y:scroll;
+}
+
+.main dl {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	background: white;
+	margin-bottom: .5rem;
+	height: 6.375rem;
+	padding: 0 .875rem 0 .875rem;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.main dl img {
+	width: 4.15rem;
+	height: 2.95rem;
+	margin-right: .5rem;
+}
+
+.main .title {
+	width: 100%;
+	margin-bottom: .35rem;
+}
+
+.main .title p {
+	display: inline-block;
+	font-size: 16px;
+	color: #3f3f3f;
+}
+
+.main .title b {
+	margin-left: .5rem;
+	display: inline-block;
+	color: white;
+	background: #fc992b;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: normal;
+	padding: .1rem .25rem;
+	position: absolute;
+	right: -.7rem;
+}
+
+.main .summary {
+	font-size: 12px;
+	color: #9C9C9C;
+	width: 99%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	line-height: .8rem;
+}
+
+.main button {
+	width: 3.4rem;
+	background: #1d92fb;
+	height: 1.3rem;
+	color: white;
+	outline: none;
+	border: none;
+	border-radius: 3px;
+	font-size: 12px;
+	line-height: 1.3rem;
+	position: relative;
+	text-indent: 1rem;
+}
+
+.main button i {
+	position: absolute;
+	left: .3rem;
+	top: .35rem;
+	width: .8rem;
+	height: .8rem;
+	background: url("http://wimg.keepyoga.com/images/distribution-list.png") no-repeat;
+	background-size: contain;
+}
+
+.main .income {
+	font-size: 12px;
+	color: #fa1c26;
+	margin-top: .35rem;
+	font-size: 16px;
+}
+
+.main .income span {
+	margin-left: 0;
+	color: #9c9c9c;
+	font-size: 12px;
+	top: -.1rem;
+}
+
+.left {
+	-webkit-box-flex: 5;
+	-ms-flex: 5;
+	flex: 5;
+	position: relative;
+}
+
+.right {
+	margin-left: .5rem;
+	text-align: center;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>1.2</jsp-version>
+
+    <function>
+		<description>getCdnPath</description><!-- 对这个EL方法的描述  -->
+		<name>getCdnPath</name><!-- 调用EL方法的名称 -->
+		<function-class>com.yoga.tags.YogaTags</function-class>
+		<function-signature>
+			java.lang.String getCdnPath( java.lang.String )
+		</function-signature>
+	</function>
+	<function>
+		<description>formatFloatStr</description><!-- 对这个EL方法的描述  -->
+		<name>formatFloatStr</name><!-- 调用EL方法的名称 -->
+		<function-class>com.yoga.tags.YogaTags</function-class>
+		<function-signature>
+			java.lang.String formatFloatStr( java.lang.String )
+		</function-signature>
+	</function>
+</taglib> 

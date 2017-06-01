@@ -1,0 +1,2 @@
+!function(e,t){var o=e.documentElement,n="orientationchange"in window?"orientationchange":"resize",i=function(){var e=o.clientWidth;e&&(o.style.fontSize=e/7.5+"px")};e.addEventListener&&(t.addEventListener(n,i,!1),e.addEventListener("DOMContentLoaded",i,!1))}(document,window);
+//# sourceMappingURL=setfontsize.min.js.map

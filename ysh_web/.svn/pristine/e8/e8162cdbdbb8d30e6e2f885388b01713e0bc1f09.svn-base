@@ -1,0 +1,291 @@
+.mainBj {
+	width: 100%;
+	height: 11.575rem;
+	background: url("../images/zqbj.jpg") no-repeat;
+	background-size: cover;
+}
+.btn {
+	width: 16.65rem;
+	height: 3.324rem;
+	outline: none;
+	border: none;
+	margin: .575rem auto 0 auto;
+	display: block;
+	background: #ff7335;
+	border-radius: 8px;
+	color: white;
+	font-size: 16px;
+	background: url("../images/canyu.png") no-repeat;
+	background-size: contain;
+	color: transparent;
+}
+.canyu {
+	background: url("../images/canyu.png") no-repeat;
+	background-size: contain;
+}
+
+.fenxiang {
+	background: url("../images/fenxiang1.png") no-repeat;
+	background-size: contain;
+}
+.jieshu {
+	background: url("../images/jieshu.png") no-repeat;
+	background-size: contain;
+}
+.wrapper {
+	width: 100%;
+	height: 100%;
+	-webkit-overflow-scrolling: touch;
+	background: url("../images/zq3.jpg") repeat;
+	overflow-y: auto;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+.zq5 {
+	width: 76%;
+	margin-left: 12%;
+}
+
+.manLen {
+	width: 92%;
+    margin: 0 auto;
+    color: #FBDE4C;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 2rem;
+    text-indent: .5rem;
+    margin-bottom: 1.2rem;
+}
+
+.man {
+	width: 92%;
+	word-wrap: break-word;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.man img {
+	display: inline-block;
+	width: 1.45rem;
+	height: 1.45rem;
+	background: red;
+	border-radius: 50%;
+	margin-top: .575rem;
+}
+
+#masking {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(0, 0, 0, .6);
+	z-index: 99;
+	display:none;
+}
+
+.Success {
+	width: 15rem;
+	height: 11rem;
+	position: absolute;
+	left: 50%;
+	margin-left: -7.5rem;
+	z-index: 1000;
+	background: white;
+	border-radius: 5px;
+	top: 50%;
+	margin-top: -5.5rem;
+	display: none;
+}
+
+.Success img {
+	width: 2.95rem;
+	height: 2.95rem;
+	display: block;
+	margin: -1rem auto .75rem auto;
+	clear: both;
+	position: relative;
+	top: -1rem;
+}
+
+.Success img.close {
+	width: 1rem;
+	height: 1rem;
+	float: right;
+	margin: 1rem .5rem 0 0;
+	position: relative;
+	top: -.5rem;
+}
+
+.Success p {
+	text-align: center;
+}
+
+.Success p.goodLuck {
+	width: 100%;
+	color: #9b9b9b;
+	font-size: 12px;
+	position: relative;
+	top: -1rem;
+}
+
+.Success p.tapRight {
+	width: 98%;
+	color: #c7c7c7;
+	font-size: 12px;
+	margin: 0 auto;
+	position: relative;
+	top: -.5rem;
+}
+
+.Success button {
+	width: 5.2rem;
+	height: 1.75rem;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	background: #118fff;
+	color: white;
+	margin: 0 auto;
+	display: block;
+}
+
+.toupiao {
+	width: 14.75rem;
+	height: 15.75rem;
+	background: white;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -7.36rem;
+	margin-top: -8rem;
+	border-radius: 5px;
+	z-index: 1000;
+	display: none;
+}
+
+.toupiao img.close {
+	width: 1rem;
+	height: 1rem;
+	position: absolute;
+	top: .5rem;
+	right: .5rem;
+}
+
+.toupiao img.tou {
+	width: 3.6rem;
+	height: 3.6rem;
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	top: -1.8rem;
+	margin-left: -1.8rem;
+}
+
+.toupiao div {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	background: white;
+	position: absolute;
+	left: 50%;
+	top: -2rem;
+	margin-left: -2rem;
+}
+
+.toupiao h4 {
+	position: relative;
+	width: 100%;
+	text-align: center;
+	top: 2.5rem;
+	color: #3f3f3f;
+}
+
+.toupiao p {
+	width: 86%;
+	position: relative;
+	left: 7%;
+	top: 3rem;
+	color: #9c9c9c;
+}
+
+.toupiao button {
+	color: white;
+	width: 5rem;
+	height: 1.75rem;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	position: relative;
+	top: 10.5rem;
+}
+
+.toupiao button.left {
+	left: 1.3rem;
+	background: #118fff;
+}
+
+.toupiao button.right {
+	right: -3rem;
+	background: #118fff;
+}
+
+.toupiao button.leftot {
+	left: 1.3rem;
+	background: #9b9b9b;
+}
+
+.toupiao button.rightot {
+	right: -3rem;
+	background: #9b9b9b;
+}
+
+.erweima {
+   width: 15rem;
+	height: 10.25rem;
+	position: absolute;
+	left: 50%;
+	margin-left: -7.5rem;
+	top: 50%;
+	margin-top: -5.1rem;
+	background: white;
+	z-index: 1000;
+}
+
+.erweima img.close {
+	width: 1rem;
+	height: 1rem;
+	position: absolute;
+	top: .5rem;
+	right: .5rem;
+}
+
+.erweima img.img {
+	width: 13.25rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -6.625rem;
+	margin-top: -3.075rem;
+}
+
+.share {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	display:none;
+}
+
+.share img {
+	width: 60%;
+	height: auto;
+	margin-left: 35%;
+	margin-top: 1rem;
+}

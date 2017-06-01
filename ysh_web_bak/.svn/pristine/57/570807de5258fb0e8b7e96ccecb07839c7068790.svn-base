@@ -1,0 +1,61 @@
+http://weixin.keepyoga.com/weixin/flashtoken.html
+{
+    "button": [  
+          {
+            "name": "随心瑜Live", 
+            "sub_button": [  
+                {
+                      "type": "view", 
+                      "name": "瑜伽商城", 
+                      "url": "https://weidian.com/?userid=1175906238&wfr=wx&code=031YyAKY1LNxXX00aGHY1hVUKY1YyAK0&state=H5WXshare"
+                },
+	            {
+                      "type": "view", 
+                      "name": "瑜伽课程", 
+                      "url": "http://weixin.keepyoga.com/v2/index.shtml"
+                },  
+                {
+				      "type": "view", 
+				      "name": "瑜伽问答", 
+				      "url": "http://weixin.keepyoga.com/w/faq/index.html?p=0"
+		        } ,
+		        {
+				       "type": "click", 
+				       "name": "联系客服",  
+				       "key":  "lxkf"  
+		        } 
+            ]
+         },
+          {
+            "name": "瘦身集训营", 
+            "type": "view", 
+	        "url": "http://weixin.keepyoga.com/pay/nvshenM4643.html", 
+            "sub_button": [ ]
+         },
+         {
+            "name": "往期精彩", 
+            "sub_button": [ 
+            	 {
+                    "type": "view", 
+                    "name": "暖冬行动2", 
+                    "url": "http://weixin.keepyoga.com/w/jxy18.html"
+                }, 
+				{
+		      		"type": "view", 
+		      		"name": "理疗集训营", 
+		      		"url": "http://weixin.keepyoga.com/w/phy14.html"
+				}, 
+                {
+		      		"type": "view", 
+		      		"name": "私教直播间", 
+		      		"url": "http://weixin.keepyoga.com/w/jxy15.html"
+				},
+                {
+		      		"type": "view", 
+		      		"name": "下载“掌馆”", 
+		      		"url": "http://a.app.qq.com/o/simple.jsp?pkgname=com.keepyoga.bussiness"
+				}
+            ]
+         }
+    ]
+}

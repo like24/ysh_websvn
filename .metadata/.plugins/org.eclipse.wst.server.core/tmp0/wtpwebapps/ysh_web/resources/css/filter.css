@@ -1,0 +1,315 @@
+.iscroll-box1 {
+	top: .8rem;
+}
+
+
+/*---header开始---*/
+
+.header-box {
+	top: 0;
+	width: 100%;
+	height: .8rem;
+	background: #F7F7F7;
+}
+
+.header-box ul {
+	width: 100%;
+	height: .8rem;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-ms-grid-row-align: center;
+	align-items: center;
+}
+
+.header-box .item {
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	text-align: center
+}
+
+.header-box .item:nth-child(2) {
+	border-left: 1px solid #E5E5E5;
+	border-right: 1px solid #E5E5E5;
+}
+
+.header-box .item.active>* {
+	-webkit-transition: all .1s;
+	transition: all .1s;
+}
+
+.header-box .item.active span {
+	color: #41C3A8;
+}
+
+.header-box .active .arrow-icon {
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+.header-box .arrow-icon {
+	top: -.05rem;
+	width: .15rem;
+	height: .09rem;
+	background: url(../images/arrow-bottom.svg) no-repeat;
+	background-size: contain;
+}
+
+.header-box span {
+	font-size: .28rem;
+	color: #7D7D7D;
+}
+
+
+/*---分类选项---*/
+
+.classfiy-box {
+	width: 100%;
+	height: auto;
+	top: .8rem;
+	z-index: 11;
+	border-top: 1px solid #D0D0D0;
+}
+
+
+/*--最新最热----*/
+
+.new-hot,
+.classfiy {
+	width: 100%;
+	max-height: 6rem;
+	overflow: hidden;
+}
+
+.new-hot {
+	padding: .2rem 0;
+}
+
+.new-hot li {
+	line-height: .9rem;
+	text-indent: .4rem;
+	color: #7d7d7d;
+	font-size: .3rem;
+}
+
+.loading-box {
+	color: #c3c3c3;
+	text-align: center;
+	margin-top: 1rem;
+}
+
+.loading-box img {
+	margin: 0 auto;
+	display: block;
+	margin-bottom: .1rem;
+}
+
+
+/*---分类---*/
+
+.classfiy .left {
+	width: 2.98rem;
+	background: #F5F5F5;
+}
+
+.classfiy .right {
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+.classfiy li {
+	height: .9rem;
+	line-height: .9rem;
+	color: #7d7d7d;
+	font-size: .28rem;
+}
+
+.classfiy .left li {
+	text-indent: .5rem;
+}
+
+.classfiy .left li span {
+	margin-left: .1rem;
+}
+
+.classfiy .left li i {
+	display: none;
+}
+
+.classfiy .left li:first-child i {
+	width: .3rem;
+	height: .25rem;
+	background: url(../images/classify-icon1.png) no-repeat;
+	background-size: contain;
+}
+
+.classfiy .left li:nth-child(2) i {
+	top: .05rem;
+	width: .3rem;
+	height: .36rem;
+	background: url(../images/classify-icon2.png) no-repeat;
+	background-size: contain;
+}
+
+.classfiy .left li:nth-child(3) i {
+	width: .3rem;
+	height: .3rem;
+	background: url(../images/classify-icon3.png) no-repeat;
+	background-size: contain;
+	top: .01rem;
+}
+
+.classfiy .left li:last-child i {
+	width: .32rem;
+	height: .28rem;
+	background: url(../images/classify-icon4.png) no-repeat;
+	background-size: contain;
+	top: .02rem;
+}
+
+.classfiy .left .active {
+	background: white;
+}
+
+.classfiy .left li.active span {
+	color: #41C3A8;
+}
+
+.classfiy .right li {
+	padding-left: .44rem;
+}
+
+
+/*---筛选----*/
+
+.firter {
+	width: 90%;
+	background: #f5f5f5;
+	padding: 0 5%;
+}
+
+.firter h6 {
+	color: #A1A1A1;
+	padding-top: .3rem;
+}
+
+.firter .item {
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	border-bottom: 1px solid #D6D6D6;
+	padding: .2rem 0;
+}
+
+.firter .item span {
+	width: 2.08rem;
+	height: .7rem;
+	line-height: .7rem;
+	text-align: center;
+	font-size: .3rem;
+	color: #7D7D7D;
+	background: white;
+	border-radius: .1rem;
+	border: 2px solid white;
+}
+
+.firter .item span.active {
+	border: 2px solid #41C3A8;
+	color: #41C3A8;
+}
+
+.check-box {
+	height: 1.35rem;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-ms-grid-row-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+
+.check-box a {
+	font-size: .28rem;
+	color: #41C3A8;
+}
+
+.check-box button {
+	width: 2.08rem;
+	height: .7rem;
+	background: #41C3A8;
+	border-radius: 8px;
+	color: white;
+	font-size: .28rem;
+}
+
+
+/*---遮罩---*/
+
+.masking {
+	background: #000;
+	opacity: .4;
+	left: 0;
+	right: 0;
+	top: 1rem;
+	bottom: 0;
+	z-index: 10;
+}
+
+#triangleUp {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 7px solid #ddd;
+	top: -7px;
+	left: 48%;
+	transition: left .3s;
+}
+
+#triangleUp.left0 {
+	left: 13%;
+	top: -7px;
+}
+
+#triangleUp.left1 {
+	left: 48%;
+	top: -7px;
+}
+
+#triangleUp.left2 {
+	left: 81%;
+	top: -7px;
+}
+
+
+/*------没有找到------*/
+
+.no-content .icon {
+	width: 1.4rem;
+	height: 1.4rem;
+	background: url(../images/bad.png) no-repeat;
+	background-size: contain;
+	margin: 1.25rem 0 0 0;
+}
+
+.no-content a {
+	display: block;
+	width: 3.2rem;
+	height: .76rem;
+	background: #41C3A8;
+	border-radius: 8px;
+	font-size: .28rem;
+	color: #FFFFFF;
+	line-height: .76rem;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.no-content span {
+	font-size: .32rem;
+	color: #C4C4C4;
+	margin: .36rem 0 1.1rem 0;
+	display: block;
+}

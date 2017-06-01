@@ -1,0 +1,83 @@
+.wrapper {
+	background: white;
+}
+.iscroll-box1 {
+    top: 1.45rem;
+}
+.header {
+	width: 100%;
+	padding: .35rem 0;
+}
+
+.header ul {
+	height: .64rem;
+	border: 2px solid #1F92F9;
+	border-radius: 5px;
+	margin: 0 auto;
+	width:3.3rem;
+}
+.header ul li{
+	width:1.65rem;
+	text-align: center;
+	line-height: .64rem;
+	font-size: .34rem;
+	color: #1F92F9;
+	
+}
+.header ul li.curr{
+	background: #1F92F9;
+	color: white;
+}
+.hot-recommend dt, .hot-recommend img {
+    width: 2.7rem;
+    height: 1.55rem;
+    margin-right: .3rem;
+}
+.hot-recommend dd {
+    border-bottom: 1px solid #EBEBEB;
+    height: 2.1rem;
+    max-width: 4rem;
+}
+.hot-recommend .name {
+    font-size: .3rem;
+    color: #252525;
+    line-height: .48rem;
+}
+.hot-recommend .type {
+    font-size: .22rem;
+    color: #7E7E7E;
+    -webkit-line-clamp: 2;
+    line-height: .32rem;
+    margin-right: 3px;
+}
+.hot-recommend .time {
+    font-size: .24rem;
+    color: #7E7E7E;
+    margin-top: .25rem;
+}
+.hot-recommend .time {
+    font-size: .24rem;
+    color: #7E7E7E;
+    margin-top: .25rem;
+}
+.hot-recommend .money {
+    font-size: .25rem;
+    color: #ED6172;
+    bottom: .44rem;
+    right: 0;
+}
+.hot-recommend1 dd{
+	height: 1.9rem;
+}
+.hot-recommend1 time{
+	position: relative;
+	top:.1rem;
+	color: #B2B2B2;
+}
+.hot-recommend1 .time,.hot-recommend1 .type {
+    color: #B2B2B2;
+}
+.hot-recommend1 dd{
+	    max-width: 4rem;
+    min-width: 3.8rem;
+}

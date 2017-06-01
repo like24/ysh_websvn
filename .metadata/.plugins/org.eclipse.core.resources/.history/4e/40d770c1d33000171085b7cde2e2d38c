@@ -1,0 +1,451 @@
+package com.yoga.controller.v2;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.yoga.controller.v2.api.QCode;
+import com.yoga.dao.Weixin_blog_distributor;
+import com.yoga.dao.Weixin_blog_distributor_signup;
+import com.yoga.dao.Weixin_blog_saler_order;
+import com.yoga.dao.Weixin_blog_sysdic;
+import com.yoga.dao.Weixin_blog_user;
+import com.yoga.dao.Weixin_blog_user_logger;
+import com.yoga.dao.Weixin_blog_zhibo;
+import com.yoga.dao.Weixin_phy_activity;
+import com.yoga.utils.AESUtil;
+import com.yoga.utils.Config;
+import com.yoga.utils.DateTools;
+import com.yoga.utils.Pagination;
+
+import net.sf.json.JSONObject;
+/**
+ * 直播相关Controller
+ * @author king
+ *
+ */
+@Controller
+public class WeixinV2LiveController extends R {
+   
+	
+	/**
+	 * 直播更多页面
+	 * @param session
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value = "v2/live/more.shtml")
+	public ModelAndView v2LiveMore(
+			HttpSession            session, 
+			HttpServletRequest     request,
+			HttpServletResponse    response
+			) { 
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String url = DOMAIN+"/v2/live/more.shtml";
+		String from           = request.getParameter("from");
+		String isappinstalled = request.getParameter("isappinstalled");
+		if( from != null && !from.equals("") ){
+			url += "?from="+from;
+		}
+		if( isappinstalled != null && !isappinstalled.equals("") ){
+			url += "&isappinstalled="+isappinstalled;
+		}
+		Weixin_blog_user user = getWeixinSession( request,session );
+		map.put("nologin",   user == null );
+		map.put("urlsecret", AESUtil.Encrypt( url, R.cKey ) );
+		return new ModelAndView("/ksite/index",map );
+	}
+  
+	
+	
+	/**
+	 * 直播页面
+	 * @param session
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value = "v2/live/{sid}.shtml")
+	public ModelAndView v2Live(
+			@PathVariable("sid")   int sid,
+			HttpSession            session, 
+			HttpServletRequest     request,
+			HttpServletResponse    response
+			) { 
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String url = DOMAIN+"/v2/live/more.shtml";
+		String from           = request.getParameter("from");
+		String isappinstalled = request.getParameter("isappinstalled");
+		if( from != null && !from.equals("") ){
+			url += "?from="+from;
+		}
+		if( isappinstalled != null && !isappinstalled.equals("") ){
+			url += "&isappinstalled="+isappinstalled;
+		}
+		Weixin_blog_user user = getWeixinSession( request,session );
+		map.put("nologin",   user == null );
+		map.put("urlsecret", AESUtil.Encrypt( url, R.cKey ) );
+		return new ModelAndView("/ksite/index",map );
+	}
+	
+	/**
+	 * 
+	* @Title: v2ListMore 
+	* @Description: TODO(获取直播大厅数据) 
+	* @return ModelAndView    返回类型 
+	* @throws
+	 */
+	@RequestMapping(value = "v2/live/list.shtml")
+	public ModelAndView list(
+			HttpSession            session, 
+			HttpServletRequest     request,
+			HttpServletResponse    response
+			) { 
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String url = DOMAIN+"/v2/live/list.shtml";
+		String from           = request.getParameter("from");
+		String isappinstalled = request.getParameter("isappinstalled");
+		
+		if( from != null && !from.equals("") ){
+			url += "?from="+from;
+		}
+		if( isappinstalled != null && !isappinstalled.equals("") ){
+			url += "&isappinstalled="+isappinstalled;
+		}
+		
+		Weixin_blog_user user = getWeixinSession( request,session );
+		map.put("nologin",   user == null );
+		map.put("urlsecret", AESUtil.Encrypt( url, R.cKey ) );
+		return new ModelAndView("/ksite/more/livelist",map );
+	}
+	
+	/**
+	 * 
+	* @Title: detail 
+	* @Description: 获取直播详情
+	* @return ModelAndView    返回类型 
+	* @throws
+	 */
+	@RequestMapping(value = "v2/live/detail/{zhiboId}.shtml")
+	public ModelAndView detail(
+			@PathVariable("zhiboId") int zhiboId,
+			HttpSession            session, 
+			HttpServletRequest     request,
+			HttpServletResponse    response
+			) { 
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String url = DOMAIN+"/v2/live/detail/"+zhiboId+".shtml";
+		String from           = request.getParameter("from");
+		String isappinstalled = request.getParameter("isappinstalled");
+		if( from != null && !from.equals("") ){
+			url += "?from="+from;
+		}
+		if( isappinstalled != null && !isappinstalled.equals("") ){
+			url += "&isappinstalled="+isappinstalled;
+		}
+		map.put("urlsecret", AESUtil.Encrypt( url, R.cKey ) );
+		return new ModelAndView("/ksite/more/liveDetail",map );
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="v2/live/getList.json")
+	public  HashMap<String,?> getZhiboList(
+			HttpSession            session, 
+			HttpServletRequest     request,
+			HttpServletResponse    response
+			) { 
+		response.setHeader("Access-Control-Allow-Origin",  "*");
+		response.setHeader("Access-Control-Allow-Methods", "POST");
+		response.setHeader("Access-Control-Allow-Headers", "x-requested-with,content-type");
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String pageNo = request.getParameter("pageNo");
+		if(StringUtils.isBlank(pageNo)){
+			pageNo = "1";
+		}
+		int page = Integer.parseInt(pageNo);
+		int pageSize = 20;
+		String filter = " ORDER BY STATUS DESC,starttime";
+		Pagination  resPage  = live.getZhiboList(filter, page, pageSize);
+		map.put("status",true);
+		map.put("code", QCode.SUCCESS.getCode() );
+		map.put("msg",  QCode.SUCCESS.getMsg());
+		map.put("data", resPage.getResults());
+		return map;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="v2/live/getDetail.json")
+	public  HashMap<String,?> getZhiboDetail(
+			HttpSession            session, 
+			HttpServletRequest     request,
+			HttpServletResponse    response
+			) { 
+		response.setHeader("Access-Control-Allow-Origin",  "*");
+		response.setHeader("Access-Control-Allow-Methods", "POST");
+		response.setHeader("Access-Control-Allow-Headers", "x-requested-with,content-type");
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String pageNo = request.getParameter("pageNo");
+		String zhiboIdStr = request.getParameter("zhiboId");
+		if(StringUtils.isBlank(pageNo)){
+			pageNo = "1";
+		} 
+		if(zhiboIdStr !=null){
+			Weixin_blog_zhibo zhibo  = live.getZhiboDetail(Integer.parseInt(zhiboIdStr));
+			map.put("zhibo", zhibo);
+		}
+		return map;
+	}
+	
+	@RequestMapping(value = "v2/live/item/list.json")
+	@ResponseBody
+	public  HashMap<String,?> getItemList(
+			HttpSession            session, 
+			HttpServletRequest     request,
+			HttpServletResponse    response
+			) { 
+		response.setHeader("Access-Control-Allow-Origin",  "*");
+		response.setHeader("Access-Control-Allow-Methods", "POST");
+		response.setHeader("Access-Control-Allow-Headers", "x-requested-with,content-type");
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String pageNo = request.getParameter("pageNo");
+		String zhiboIdStr = request.getParameter("zhiboId");
+		if(StringUtils.isBlank(pageNo)){
+			pageNo = "1";
+		}
+		int page = Integer.parseInt(pageNo);
+		int pageSize = 20;
+		if(zhiboIdStr !=null){
+			List<HashMap<String,Object>> list = live.getZhiboItemList(Integer.parseInt(zhiboIdStr), page, pageSize);
+			map.put("list", list);
+		}
+		return map;
+	}
+	
+	@RequestMapping(value = "v2/live/teacher/list.json")
+	@ResponseBody
+	public  HashMap<String,?> getTeacherList(
+			HttpSession            session, 
+			HttpServletRequest     request,
+			HttpServletResponse    response
+			) { 
+		response.setHeader("Access-Control-Allow-Origin",  "*");
+		response.setHeader("Access-Control-Allow-Methods", "POST");
+		response.setHeader("Access-Control-Allow-Headers", "x-requested-with,content-type");
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		Weixin_blog_user user = getWeixinSession( request,session );
+		String pageNo = request.getParameter("pageNo");
+		String zhiboIdStr = request.getParameter("zhiboId");
+		if(StringUtils.isBlank(pageNo)){
+			pageNo = "1";
+		}
+		if(zhiboIdStr !=null){
+			//List<HashMap<String,Object>> list = live.getZhiboTeacherList(Integer.parseInt(zhiboIdStr));
+//			for(HashMap<String, Object> teacher : list){
+//				if(user != null && user.getId() > 0){
+//					if(teacher.get("id") != null && !teacher.get("id").equals("0")){
+//						boolean follow = weixin.isFollowUser( user.getId(),Integer.parseInt(teacher.get("id")+""));
+//						teacher.put("followuser", follow);
+//					}
+//				}
+//			}
+			//map.put("list", list);
+		}
+		return map;
+	}
+	
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 */
+	public boolean checkUserHasFollow( Weixin_blog_user user){
+		boolean result = false;
+		if( user == null || user.getWxid() == null){
+			return result;
+		}
+		Object [] token = weixin.getToken();
+		if( token == null || token.length == 2 || token[0] == null ){
+			token = weixin.getToken();
+		}
+		if( token == null || token.length == 2 || token[0] == null ){
+			token = weixin.getToken();
+		}
+		if( token == null || token.length == 2 || token[0] == null ){
+			token = weixin.getToken();
+		}
+		if( token != null && token.length > 2 ){
+			String url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token="+token[0]+ "&openid="+user.getWxid()+"&lang=zh_CN";
+			JSONObject json = JSONObject.fromObject(httpClient.doGet(url));
+			if( json == null ){
+				return result;
+			}
+			if( json.containsKey("subscribe") ){
+				return json.getInt("subscribe") == 1;
+			}
+		}
+		return result;
+	}
+	
+//	/**
+//	 * 预生成订单
+//	 * @param session
+//	 * @param request
+//	 * @param response
+//	 * @param name
+//	 * @param phone
+//	 * @param pwd
+//	 * @param sign
+//	 * @param ordernumber
+//	 * @return
+//	 */
+//	@RequestMapping(value = "v2/live/zhibo/info.html")
+//	public @ResponseBody JSONObject zhiboOrder(
+//			HttpSession            session, 
+//			HttpServletRequest     request,
+//			HttpServletResponse    response
+//			){
+//		String name = this.trim( request.getParameter("name") );
+//		String phone= this.trim( request.getParameter("phone") );
+//		String uuid = this.trim( request.getParameter("uuid") ); 
+//		String ordernumber = this.trim( request.getParameter("ordernumber") );
+//		String pwd  = this.trim( request.getParameter("pwd") );
+//		String loggerid = this.trim( request.getParameter("loggerid"));
+//		String m = this.trim(request.getParameter("money"));
+//		String zid = this.trim(request.getParameter("zid"));
+//		JSONObject result = new JSONObject();
+//		if( name == null || name.trim().length() < 1){
+//			result.put("status", false);
+//			result.put("msg", "请输入真实姓名");
+//			return result;	
+//		}
+//		if(phone == null || phone.trim().length() != 11){
+//			result.put("status", false);
+//			result.put("msg", "请输入正确的手机号码！");
+//			return result;
+//		}  
+//		if( !pwd.equals("99999") ){
+//			int flag = weixin.verificationNumber(phone, pwd);
+//			if( flag < 1 ){
+//				result.put("status", false);
+//				result.put("msg", "输入的验证码错误！");
+//				return result ;
+//			}
+//		}
+//		Weixin_blog_user user = getWeixinSession( request,session );
+//		if( user == null ){
+//			result.put("status", false);
+//			result.put("msg", "请先登录！");
+//			return result;
+//		}
+//		user.setMobile(phone);
+//		user.setRealname(name);
+//		int res = weixin.addOrUpdateWeixinUser(user);
+//		java.text.DecimalFormat myformat=new java.text.DecimalFormat("0.00");
+//		int  money = Integer.valueOf( m );
+//		String str = myformat.format( money );    
+//		if( res > 0 ){
+//			setUserSession(user, response);
+//			SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//			Weixin_blog_saler_order order = new Weixin_blog_saler_order();
+//			Weixin_blog_zhibo zhibo = new Weixin_blog_zhibo();
+//			if(zid != null && !zid.equals("0")){
+//				zhibo = manager.getZhibo(Integer.parseInt(zid));
+//			}
+//			order.setCname(user.getRealname());
+//			order.setMobile(user.getMobile());
+//			order.setMoney( str );
+//			order.setRemark(user.getFile_path());
+//			order.setWid(user.getId());
+//			order.setWxid(user.getWxid());
+//			order.setCreatetime(f.format(new Date()));
+//			order.setRefund(-1); 
+//			order.setCcname( ACTIVITY_SLIMMING_NAME );
+//			order.setOrdernumber(ordernumber);
+//			order.setActtype( ACTIVEIT_2017_SLIMMING );
+//			order.setUnionid(user.getUnionid());
+//			order.setChecked(0); 
+//			order.setLoggerid( loggerid.length() == 0 ? 0 :Integer.valueOf( loggerid ) );
+//			Weixin_blog_distributor distirbutor = null;
+//			if( uuid != null ){
+//				distirbutor = manager.getDistributorByUUid(uuid, ACTIVEIT_2017_SLIMMING);
+//			}
+//			if( loggerid.length() > 0 ){
+//				Weixin_blog_user_logger  logger = weixin.getLogger( Integer.valueOf( loggerid ));
+//				if( logger != null ){
+//					if( logger.getWxordernum() != null && logger.getWxordernum().length() > 5 ){
+//						signup.setWxordernum( logger.getWxordernum() );
+//					}
+//				}
+//			}
+//			Weixin_blog_sysdic yunc = manager.getSysdic( 31 );
+//			if( yunc != null && yunc.getId() > 0 && !StringUtils.isEmpty( yunc.getValue() )){
+//				if( DateTools.beforeDate( sdf.format( new Date() ), yunc.getValue() )){
+//					signup.setDid( distirbutor.getId() );
+//					signup.setDname(distirbutor.getCname() );
+//					signup.setFcbl( distirbutor.getFcbl() );
+//					signup.setDmoney("20");
+//					signup.setPmoney("18");  
+//				}else{
+//					signup.setDid(0);
+//					signup.setDname("随心瑜平台");
+//					signup.setFcbl("0/10");
+//					signup.setDmoney("0"); 
+//					signup.setPmoney("0");
+//				}
+//			} 
+//			int signupid = manager.addOrUpdateSignup(signup);
+//			result.put("status",  signupid > 0);
+//			result.put("signupid", signupid);			
+//		}
+//		return result;
+//	}
+	
+	/**
+	 * 直播更多页面
+	 * @param session
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value = "v2/live/zhibo/item{id}.shtml")
+	public ModelAndView zhibo(
+			@PathVariable("id")    int id, 
+			HttpSession            session, 
+			HttpServletRequest     request,
+			HttpServletResponse    response
+			) { 
+		if( id <= 0 ){
+			return goIndexHome();
+		}
+		Weixin_blog_user user = getWeixinSession( request,session );
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String url = DOMAIN+"/v2/live/zhibo/item.shtml";
+		String from = request.getParameter("from");
+		String isappinstalled = request.getParameter("isappinstalled");
+		if( from!=null && !from.equals("") ){
+			url+="?from="+from;
+		}
+		if( isappinstalled!=null && !isappinstalled.equals("") ){
+			url+="&isappinstalled="+isappinstalled;
+		}
+		map.put("user",       user);  
+		map.put("nologin",    user == null);
+		map.put("urlsecret",  AESUtil.Encrypt(url, R.cKey) );
+		return new ModelAndView("/ksite/active/live/index",map );
+	}
+	
+	
+}

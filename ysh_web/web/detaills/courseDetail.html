@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta content="telephone=no,email=no" name="format-detection">
+		<title>随心瑜Live | 您想要学的课程都在这里</title>
+		<script src="../resources/js/lib/setfontsize.min.js"></script>
+		<link rel="stylesheet" href="../resources/css/reset.css" />
+		<link rel="stylesheet" href="../resources/css/index.css" />
+		<link rel="stylesheet" href="../resources/css/courseDetail.css" />
+
+		<body>
+			<div class="wrapper bg-e4" id="app" v-cloak>
+				<header class="header">
+					<video controls class="player">
+						<source src="http://wimg.keepyoga.com/001-Sukrasana.mp4" type="audio/ogg" >
+					</video>
+					<div  class="poster-box">
+						<img src="http://wimg.keepyoga.com/20160905152404205_346.jpg" alt="" class="poster"/>
+						<i class="icon  absolute icon-video" ></i>
+						<div class="poster-mask"></div>
+					</div>
+				</header>
+				<!--    iscroll滚动    -->
+				<section class="iscroll-box absolute ohidden iscroll-box1" id="mainBox">
+					<div class="iscrollBox " id="pullUpWrapper">
+						<div class="course-name">
+							<div class="name">{{ content.cname }}</div>
+							<div class="tags">
+								<span v-for="item in taglist">{{ item }}</span>
+							</div>
+						</div>
+						<!--    导师介绍 start  -->
+						<div class="teacher">
+							<a href="">
+								<div class="teacher-photo">
+									<img :src="tutor.file_path">
+								</div>
+								<div class="info">
+									<div class="name">{{ tutor.nickname }}</div>
+									<div class="rank ellipsis">{{ tutor.userpost }}</div>
+								</div>
+								<img class="right-arrow" src="../resources/images/arrow-right.png">
+							</a>
+						</div>
+						<!--    导师介绍 end  -->
+						<div class="course-info">
+							<div class="tab-box flex">
+								<div class="tab" id="tab">
+									<span v-for="(item,$index) in tabText" :class="{ curr:readyShow[$index] }" @click="changeTab($index)">{{ item }}</span>
+								</div>
+							</div>
+							<div class="content">
+								<!--  介绍start  -->
+								<div v-show="readyShow[0]" class="bg-e4">
+									<div class="intro ">
+										<div class="cont" v-html="content.content"></div>
+									</div>
+									<!--   相关课程  start -->
+									<div class="hot-recommend bg-fff m30 " v-if="seemcourse.length">
+										<div>
+											<dl class="item" v-for="item in seemcourse">
+												<a :href="'./courseDetail.html?cid='+item.id" class="flex">
+													<dt class="relative">
+                                        <img :data-src="item.icon" src="../resources/images/pixel.gif" :alt="item.cname" />
+                                        <i class="icon  absolute" :class="item.ctype?'icon-video':'icon-audio'"></i>
+                                        <p class="topic  absolute" :class="item.ctype?'blue':'orange'">
+                                            <small></small>
+                                        </p>
+                                    </dt>
+													<dd class="ohidden relative">
+														<h5 class="name ellipsis">{{ item.cname }}</h5> <span class="type block ellipsis2">{{ item.remark }}</span> <span class="time block">时长：<time>{{ item.longtime }}</time></span>
+														<p class='money absolute' v-if="item.money  > 0 "><small>￥</small><big>{{ item.money }}</big></p>
+														<p class='money absolute free' v-if="item.money <=0 ">免费</p>
+													</dd>
+												</a>
+											</dl>
+										</div>
+									</div>
+								</div>
+								<!--   相关课程  end -->
+								<!--  介绍end  -->
+								<!--   目录start   -->
+								<div class="menu" id="menu" v-show="readyShow[1]">
+									<ul>
+										<li v-for="item in menu">
+											<a href="javascript:;" :data-sourse="item.filepath">
+												<div class="index">{{ item.num }}</div>
+												<div class="name">{{ item.name }}</div>
+												<img src="../resources/images/arrow-right.png">
+											</a>
+										</li>
+									</ul>
+								</div>
+								<!--   目录 end   -->
+								<!--    留言 start  -->
+								<div class="has-word" v-show="readyShow[2]">
+									<ul v-if="commentlist.length">
+
+										<li v-for=" item in commentlist ">
+											<div class="head">
+												<div class="avatar"><img :src="item.header"></div>
+												<div class="name">{{item.username}}</div>
+											</div>
+											<div class="content">{{ item.cname }}</div>
+											<div class="time">{{item.showtime}}</div>
+										</li>
+									</ul>
+									<div class="more"><span>查看更多</span><img src="../resources/images/more.png"></div>
+								</div>
+								<!--    留言 end  -->
+								<div class="no-word" v-if="!commentlist.length">
+									<img src="../resources/images/bad.png">
+									<div class="content">暂无评价，快来写第一条留言吧~</div>
+									<div class="write">写留言</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</section>
+				<!--    底部导航开始    -->
+				<footer>
+					<div class="item"><img class="collect" src="../resources/images/collect.png">
+						<p>收藏</p>
+					</div>
+					<div class="item"><img class="share" src="../resources/images/share.png">
+						<p>分享</p>
+					</div>
+					<div class="item"><img class="message" src="../resources/images/message.png">
+						<p>留言</p>
+					</div>
+					<div class="item"><img class="consult" src="../resources/images/consult.png">
+						<p>咨询</p>
+					</div>
+					<div class="buy"><span>购买：</span><span class="unit">￥</span><span>15.00</span></div>
+				</footer>
+				<div class="pop" style="display: none;">
+					<div class="shadow"></div>
+					<div class="cont">
+						<div class="content">
+							<div class="close">
+								<img src="../resources/images/close.png">
+							</div>
+							<img class="bad" src="../resources/images/bad.png">
+							<div class="word">购买体验后才能发表留言</div>
+						</div>
+						<div class="buy">立即购买</div>
+					</div>
+				</div>
+			</div>
+			<script src="../resources/js/lib/vue.min.js"></script>
+			<script src="../resources/js/lib/zepto.min.js"></script>
+			<script src="../resources/js/lib/iscroll4.min.js"></script>
+			<script src="../resources/js/lib/iscroll-pullup.js"></script>
+			<script src="../resources/js/common.js"></script>
+			<script src="../resources/js/modules/courseDetail.js"></script>
+		</body>
+
+</html>
